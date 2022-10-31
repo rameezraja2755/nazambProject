@@ -23,7 +23,7 @@ const Router=()=> {
     <BrowserRouter>
    
         <Routes>
-          <Route path="/" element={<Home />}/>
+          <Route path="/" exact element={<Home />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/myFlat" element={<Protected isLoggedIn={userDetail.isLoggedIn}>
               <MyFlat />

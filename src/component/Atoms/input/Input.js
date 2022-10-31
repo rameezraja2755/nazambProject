@@ -14,33 +14,22 @@ import DoneIcon from '@mui/icons-material/Done';
 export default function InputAdornments() {
   const [values, setValues] = React.useState({
     amount: '',
-  
   });
-
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-
- 
-
-
   return (
     <Box sx={{}}>
       <div>
            
-        <FormControl sx={{ m: 1, width: '25ch' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-amount">amount</InputLabel>
+        <FormControl sx={{ m: 1, width: '296px' }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-amount">Email</InputLabel>
           <OutlinedInput
             id="outlined-adornment-password"
             type= 'text'
             value={values.amount}
-            onChange={handleChange('amount')}
-            endAdornment={
-              <InputAdornment position="end">
-               <DoneIcon/>
-              </InputAdornment>
-            }
-            label="amount"
+            onChange={handleChange('Email')}
+            label="Email"
           />
         </FormControl>
       </div>
