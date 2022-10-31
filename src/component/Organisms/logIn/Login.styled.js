@@ -1,13 +1,14 @@
 import { styled } from '@mui/system';
+import { Box } from '@mui/system';
 
 const MainContainer = styled("p")({
   color: "red",
   margin:" 10px auto",
-  textAlign: "center",
+  // textAlign: "center",
   fontFamily: "sans-serif",
  color:" #228B22",
-  textAlign:" center",
-  maxWidth:" 300px",
+  // textAlign:" center",
+  maxWidth:" 296px",
   position: "relative",
   
   "&::before":{
@@ -36,32 +37,42 @@ const MainContainer = styled("p")({
 });
 
 const Formdiv = styled("div")({
-  width:"80%",
+  width:"100%",
   textAlign:"center",
-  alignItems:"center",
-  justifyContent:"center"
+  // alignItems:"center",
+  // justifyContent:"center",
+  margin:" 200px auto"
+
 });
+const InputIn = styled("input")({
+  Width:"296px",
+Height:"51.69px",
+Radius:"8px",
+padding:"20px"
+
+})
 
 const Parentbox =styled("box")({
   display:"flex",
   justifyContent:"center",
-  textAlign:"center",
+  // textAlign:"center",
   alignItems:"center",
  
 
 
 })
 const BoxImg = styled("img")({
-  width:"40px",
-  height:"40px"
+  width:"30px",
+  height:"30px"
 })
-const Imagediv = styled("div")({
-  width:"50px",
-  height:"50px",
+const Imagediv = styled({Box})({
+  width:"30px",
+  height:"30px",
   background:"#EBEBEB",
-  margin:"20px",
+  margin:"10px",
   padding:"10px",
-  boxShadow:" rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px"
+  backgroundColor:"white",
+  boxShadow:" rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px"
 })
 
-export { MainContainer ,Formdiv, Parentbox ,BoxImg,Imagediv};
+export { MainContainer ,Formdiv, Parentbox ,BoxImg,Imagediv,InputIn};
