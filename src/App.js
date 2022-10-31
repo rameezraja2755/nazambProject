@@ -1,23 +1,26 @@
 import "./App.css";
-import Input from './component/Atoms/input/Input'
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
-import { Typography } from "@mui/material";
-import Button from  './component/Atoms/button/Button'
-import Login from './component/Organisms/logIn/Login'
-
-// import Sidebar from './component/Organisms/Sidebar's
-
+import Login from './component/Organisms/logIn/Login';
+import Router from "./routes/Router";
+import UserDetailProvider from "./GlobalVar";
+import Navbar from "./component/Organisms/Navbar";
+import Sidebar from './component/Organisms/Sidebar'
+import MainNavbar from "./component/Organisms/MainNavbar";
+import Myroom from "./component/Organisms/myRoom/Myroom";
 function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Typography
-        variant="body1" color="secondary">hello world</Typography>
-          < Input/>
-          <Button/>
-          <Login />
-          {/* <Sidebar /> */}
+        <UserDetailProvider>
+        {/* <Router />s */}
+        {/* <Login /> */}
+{/* <Myroom /> */}
+        <div style={{display:"flex",alignItems:"center"}}>
+     <Navbar /> 
+     <MainNavbar />
+        </div>
+        </UserDetailProvider>
       </ThemeProvider>
     
 

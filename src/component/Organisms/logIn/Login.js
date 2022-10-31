@@ -19,9 +19,7 @@ const Login = () => {
       <Parentbox >
         <Imagediv>
         <BoxImg src={img}/>
-         
         </Imagediv>
-          
         <Box>
           <Typography>Sign in with Google</Typography>
         </Box>

@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { userDetails } from "../GlobalVar";
-
+//import {userDetails } from "../GlobalVar";
+import {userDetailContext} from "../../../GlobalVar";
 const Login = () => {
-  const userDetail = useContext(userDetails);
-  //const setUserDetail = useContext(setUserDetails);
+ 
+  const [userDetail] = useContext(userDetailContext);
+ 
 
   const loginFunction = () => {
     userDetail.loggedIn(true);

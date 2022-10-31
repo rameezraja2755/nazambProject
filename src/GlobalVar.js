@@ -7,12 +7,12 @@ export const userDetailContext = createContext();
 const GlobalVar = ({ children }) => {
   const [userDetails] = useState({
     name: "nazamb",
-    loggedIn: "false",
+    loggedIn: false,
     rentPaid: 0,
   });
 
   return (
-    <userDetailContext.Provider value={{...userDetails,sett}}>
+    <userDetailContext.Provider value={userDetails}>
       {children}
     </userDetailContext.Provider>
   );

@@ -39,7 +39,7 @@ const Formdiv = styled("div")({
   width:"80%",
   textAlign:"center",
   alignItems:"center",
-  justifyContent:"center"
+  justifyContent:"center",
 });
 
 const Parentbox =styled("box")({
