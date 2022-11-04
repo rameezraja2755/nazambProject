@@ -50,7 +50,7 @@ padding:"20px"
 
 })
 
-const Parentbox =styled("box")({
+const Parentbox =styled(Box)({
   display:"flex",
   justifyContent:"center",
   // textAlign:"center",
@@ -63,7 +63,7 @@ const BoxImg = styled("img")({
   width:"30px",
   height:"30px"
 })
-const Imagediv = styled({Box})({
+const Imagediv = styled(Box)({
   width:"30px",
   height:"30px",
   background:"#EBEBEB",

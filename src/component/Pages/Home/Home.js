@@ -1,12 +1,12 @@
 import React from 'react';
-//import NavbarBlue from '../../Organisms/Navbar_Blue';
-//import Navbar from "../../Organisms/Navbar";
+import NavbarBlue from '../../Organisms/NavbarBlue';
+// import Navbar from "../../Organisms/Navbar";
 const home = () => {
   return (
    <>
-{/* <Navbar /> */}
-{/* <div>homeee</div> */}
-{/* <NavbarBlue /> */}
+<p>homepage :p</p>
+<NavbarBlue />
+
    </>
   )
 }

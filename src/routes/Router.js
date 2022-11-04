@@ -1,10 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 
-//import ReactDOM from "react-dom/client";
-
-import {userDetailContext} from "../GlobalVar";
+// import {userDetailContext} from "../Context/GlobalVar";
 import Home from "../component/Pages/Home/Home";
-//import Chat from "./pages/Chat/chat";
 import Login from "../component/Pages/Login/Login"
 import MyFlat from "../component/Pages/MyFlat/MyFlat";
 import Protected from "../Protected";
@@ -13,19 +10,22 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Chat from "../component/Organisms/sidebar/Sidebar";
+
+import { useUserContext } from "../Context/userContext";
 
 const Router=()=> {
-  const userDetail = useContext(userDetailContext);
-  console.log('userDetail', userDetail, userDetailContext)
-   //const LoggedIn = React.useContext(LoggedIn);
-  //const updateLoggedIn = useContext(updateLoggedIn);
+
+  //console.log('userDetail', AuthContext, userDetailContext)
+const { user } = useUserContext();
   return (
     <BrowserRouter>
    
         <Routes>
           <Route path="/" exact element={<Home />}/>
           <Route path="/login" element={<Login />}/>
-          <Route path="/myFlat" element={<Protected isLoggedIn={userDetail.isLoggedIn}>
+          <Route path="/chat" element={<Chat />}/>
+          <Route path="/myFlat" element={<Protected user={user}>
               <MyFlat />
               </Protected>}/>
           
