@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
-import TextField from "@mui/material/TextField";
 
 export default function InputAdornments({
   type,
@@ -14,12 +13,7 @@ export default function InputAdornments({
   onChange,
   onBlur,
 }) {
-  const [values, setValues] = React.useState({
-    amount: "",
-  });
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+
   return (
     <Box sx={{}}>
       <div>

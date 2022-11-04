@@ -1,15 +1,7 @@
 import React, { useState, useEffect } from "react";
-import InventoryIcon from "@mui/icons-material/Inventory";
-import Button from "@mui/material/Button";
-import SendIcon from "@mui/icons-material/Send";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 // import Button from '@mui/material/Button';
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import Avatar from "@mui/material/Avatar";
-import ima from "../../../component/images/grl.jpg";
 import imb from "../../../component/images/g5.jpg";
 import imc from "../../../component/images/g1.png";
 import imd from "../../../component/images/g2.png";
@@ -20,35 +12,18 @@ import {
   SidebarCard,
   Avter,
   InnerContent,
-  Time,
   Read,
   Boxes,
 } from "./Sidebar.styled";
 
 const Chat = () => {
-  const [Msg, setMsg] = useState("");
-  const handleSubmit = (event) => {
-    // event.preventDefault();
-    let num = data.length;
-    num = num + 1;
-    console.log(Msg, "Msg");
-    data.push({
-      id: num,
-      usertype: "reciever",
-      msg: Msg,
-      timestamp: "11:50am",
-      now: "Now",
-      unread: 22,
-      image: Image,
-    });
-    //console.log(data, "data");
-  };
+  const [Msg] = useState("");
   useEffect(() => {
     // show();
   }, [Msg]);
   return (
     <div className="chat">
-      {data.map((item, text) => {
+      {data.map((item) => {
         return (
           <>
             <Sidebar>

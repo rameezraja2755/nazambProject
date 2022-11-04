@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react"
 // import Input from '../Atoms/Input'
 
 const index = () => {
   return (
     <div>
-        {/* <Input/> */}
+      {/* <Input/> */}
     </div>
   )
 }

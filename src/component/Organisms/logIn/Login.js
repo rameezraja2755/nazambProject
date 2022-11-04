@@ -1,7 +1,7 @@
 import React from "react";
 import Input from "../../Atoms/input/Input";
 import PasswordInput from "../../Atoms/passwordInput/PasswordInput";
-import Button from "../../Atoms/button/Button";
+import Button from "@mui/material/Button";
 import { Typography, Box } from "@mui/material";
 import { useFormik } from "formik";
 // import { signUpSchema } from "./schemas";
@@ -16,6 +16,7 @@ import {
   Boxx,
   Btn,
 } from "./Login.styled.js";
+import { useUserContext } from "../../../Context/userContext";
 
 const signUpSchema = Yup.object({
   email: Yup.string().email().required("please enter your email"),
@@ -27,15 +28,20 @@ const initialValues = {
   password: "",
 };
 const Login = () => {
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
+
+  const { signInUser } = useUserContext();
+
+
+  const { values, errors, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: initialValues,
       validationSchema: signUpSchema,
-      onSubmit: (values, actions) => {
-        console.log(errors, values, "submit");
+      onSubmit: (values) => {
+        console.log("dayam", values);
+        signInUser(values.email, values.password)
       },
     });
-  console.log(values, "values", errors);
+
   return (
     <Formdiv>
       <form onSubmit={handleSubmit}>
@@ -64,7 +70,7 @@ const Login = () => {
           <Typography>Resend activation email.</Typography>
         </Boxx>
         <Btn>
-          <Button />
+          <Button type="submit" > Login </Button>
         </Btn>
 
         <Box>

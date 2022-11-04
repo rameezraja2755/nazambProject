@@ -25,14 +25,14 @@ const InnerContent = styled( CardContent )({
 const Read = styled("Read")({
   
   height: "20px",
-width: "20px",
-left: "34px",
-top: "0px",
-borderRadius: "4px",
-padding: "2px 6px 2px 6px",
-// Gap:"8px",
-backgroundColor:"#64C4BC",
-color:"white"
+  width: "20px",
+  left: "34px",
+  top: "0px",
+  borderRadius: "4px",
+  padding: "2px 6px 2px 6px",
+  // Gap:"8px",
+  backgroundColor:"#64C4BC",
+  color:"white"
 
 
 })

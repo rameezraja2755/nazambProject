@@ -1,11 +1,11 @@
-import { styled } from '@mui/system';
-import { Box } from '@mui/system';
+import { styled } from "@mui/system";
+import { Box } from "@mui/system";
 
 
 
 
 const Boxx = styled(Box)({
-    margin:"80px 80px"
+  margin:"80px 80px"
 })
 
 

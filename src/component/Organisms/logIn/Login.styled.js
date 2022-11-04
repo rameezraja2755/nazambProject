@@ -3,7 +3,6 @@ import { styled } from "@mui/system";
 import { Box } from "@mui/system";
 
 const MainContainer = styled("p")({
-  color: "red",
   margin: " 10px auto",
   textAlign: "center",
   fontFamily: "sans-serif",
@@ -12,7 +11,7 @@ const MainContainer = styled("p")({
   position: "relative",
 
   "&::before": {
-    content: `''`,
+    content: "''",
     display: " block",
     width: " 130px",
     height: "1px",
@@ -22,7 +21,7 @@ const MainContainer = styled("p")({
     position: "absolute",
   },
   "&::after": {
-    content: `''`,
+    content: "''",
     display: " block",
     width: " 130px",
     height: "1px",
@@ -59,10 +58,12 @@ const Parentbox = styled("box")({
   // textAlign:"center",
   alignItems: "center",
 });
+
 const BoxImg = styled("img")({
   width: "30px",
   height: "30px",
 });
+
 const Imagediv = styled(Box)({
   width: "30px",
   height: "30px",
@@ -72,8 +73,8 @@ const Imagediv = styled(Box)({
   backgroundColor: "white",
   boxShadow: " rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px",
 });
+
 const Boxx = styled(Box)({
-  alignItems: "flex-start",
   alignItems: "start",
   textAlign: "start",
   margin: "17px 20px",

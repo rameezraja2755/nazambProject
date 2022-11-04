@@ -17,18 +17,18 @@ import { useUserContext } from "../Context/userContext";
 const Router=()=> {
 
   //console.log('userDetail', AuthContext, userDetailContext)
-const { user } = useUserContext();
+  const { user } = useUserContext();
   return (
     <BrowserRouter>
    
-        <Routes>
-          <Route path="/" exact element={<Home />}/>
-          <Route path="/login" element={<Login />}/>
-          <Route path="/chat" element={<Chat />}/>
-          <Route path="/myFlat" element={<Protected user={user}>
-              <MyFlat />
-            </Protected>
-          }
+      <Routes>
+        <Route path="/" exact element={<Home />}/>
+        <Route path="/login" element={<Login />}/>
+        <Route path="/chat" element={<Chat />}/>
+        <Route path="/myFlat" element={<Protected user={user}>
+          <MyFlat />
+        </Protected>
+        }
         />
       </Routes>
     </BrowserRouter>

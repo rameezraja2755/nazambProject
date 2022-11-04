@@ -1,19 +1,3 @@
-// import { createTheme } from '@mui/material/styles';
-// import { green, purple } from '@mui/material/colors';
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main:purple[500],
-//     },
-//     secondary: {
-//       main: green[500],
-//     },
-//   },
-// });
-
-//   export default theme
-
 import { createTheme } from "@mui/material/styles";
 const theme = createTheme({
   breakpoints: {
@@ -280,7 +264,7 @@ const theme = createTheme({
       fontWeight: 600,
     },
     fontFamily:
-      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+      "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\"",
     body1: {
       fontSize: "14",
       fontWeight: "400",
@@ -303,7 +287,6 @@ const theme = createTheme({
     subtitle1: {
       fontFamily: "Poppins",
       fontSize: "14px",
-      fontWeight: " 500",
       fontWeight: "bold",
       // lineHeight:" 20px",
       letterSpacing: " 0em",
