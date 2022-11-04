@@ -13,7 +13,6 @@ export default function InputAdornments({
   onChange,
   onBlur,
 }) {
-
   return (
     <Box sx={{}}>
       <div>

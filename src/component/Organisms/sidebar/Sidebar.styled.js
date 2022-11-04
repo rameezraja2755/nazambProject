@@ -19,11 +19,11 @@ const Avter = styled("ave")({
   height: "50px",
   margin: "10px 5px",
 });
-const InnerContent = styled( CardContent )({
-  margin: "8px",padding:"0"
+const InnerContent = styled(CardContent)({
+  margin: "8px", padding: "0",
 });
 const Read = styled("Read")({
-  
+
   height: "20px",
   width: "20px",
   left: "34px",
@@ -31,20 +31,21 @@ const Read = styled("Read")({
   borderRadius: "4px",
   padding: "2px 6px 2px 6px",
   // Gap:"8px",
-  backgroundColor:"#64C4BC",
-  color:"white"
+  backgroundColor: "#64C4BC",
+  color: "white",
 
-
-})
+});
 const Boxes = styled("Boxes")({
-  display:"flex",
-  justifyContent:"space-between"
+  display: "flex",
+  justifyContent: "space-between",
 
-})
+});
 const Time = styled("Time")({
-  height:"20px",
-  width:"20px",
+  height: "20px",
+  width: "20px",
   // backgroundColor:"red"
 
-})
-export { Sidebar, SidebarCard, Avter, InnerContent,Time,Read,Boxes };
+});
+export {
+  Sidebar, SidebarCard, Avter, InnerContent, Time, Read, Boxes,
+};

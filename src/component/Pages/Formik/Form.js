@@ -10,16 +10,18 @@ const initialValues = {
   confirmPassword: "",
 };
 
-export const Form = () => {
-  const { values, errors,touched, handleBlur,handleChange, handleSubmit } = useFormik({
-    initialValues: initialValues,
+export function Form() {
+  const {
+    values, errors, touched, handleBlur, handleChange, handleSubmit,
+  } = useFormik({
+    initialValues,
     validationSchema: signUpSchema,
-    onSubmit: (values,  actions) => {
-      console.log(errors, "submit" ,  );
+    onSubmit: (values, actions) => {
+      console.log(errors, "submit");
     },
   });
   // actions.resetForm();
-  console.log(values, "values",errors);
+  console.log(values, "values", errors);
   return (
     <Boxx>
       <form onSubmit={handleSubmit}>
@@ -35,7 +37,7 @@ export const Form = () => {
             onChange={handleChange}
             onBlur={handleBlur}
           />
-          {errors.name && touched.name ?(<p className="form-errors">{errors.name}</p>) : null}
+          {errors.name && touched.name ? (<p className="form-errors">{errors.name}</p>) : null}
         </div>
         <div className="form-row">
           <label htmlFor="email">Email</label>
@@ -50,7 +52,7 @@ export const Form = () => {
             onBlur={handleBlur}
           />
         </div>
-        {errors.email && touched.email ?(<p className="form-errors">{errors.email}</p>) : null}
+        {errors.email && touched.email ? (<p className="form-errors">{errors.email}</p>) : null}
 
         <div className="form-row">
           <label htmlFor="password">Password</label>
@@ -64,8 +66,7 @@ export const Form = () => {
             onBlur={handleBlur}
           />
         </div>
-        {errors.password && touched.password ?(<p className="form-errors">{errors.password}</p>) : null}
-
+        {errors.password && touched.password ? (<p className="form-errors">{errors.password}</p>) : null}
 
         <div className="form-row">
           <label htmlFor=" confirmPassword"> confirm Password</label>
@@ -79,7 +80,7 @@ export const Form = () => {
             onBlur={handleBlur}
           />
         </div>
-        {errors.confirmPassword && touched.confirmPassword ?(<p className="form-errors">{errors.confirmPassword}</p>) : null}
+        {errors.confirmPassword && touched.confirmPassword ? (<p className="form-errors">{errors.confirmPassword}</p>) : null}
 
         <div className="modal-button">
           <button className="input-button" type="submit" onClick={handleSubmit}>
@@ -89,4 +90,4 @@ export const Form = () => {
       </form>
     </Boxx>
   );
-};
+}

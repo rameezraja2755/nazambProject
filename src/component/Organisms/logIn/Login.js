@@ -1,12 +1,12 @@
 import React from "react";
-import Input from "../../Atoms/input/Input";
-import PasswordInput from "../../Atoms/passwordInput/PasswordInput";
 import Button from "@mui/material/Button";
 import { Typography, Box } from "@mui/material";
 import { useFormik } from "formik";
 // import { signUpSchema } from "./schemas";
 import * as Yup from "yup";
-import img from "../../../component/images/google.png";
+import PasswordInput from "../../Atoms/passwordInput/PasswordInput";
+import Input from "../../Atoms/input/Input";
+import img from "../../images/google.png";
 import {
   MainContainer,
   Formdiv,
@@ -27,39 +27,38 @@ const initialValues = {
   email: "",
   password: "",
 };
-const Login = () => {
-
+function Login() {
   const { signInUser } = useUserContext();
 
-
-  const { values, errors, handleBlur, handleChange, handleSubmit } =
-    useFormik({
-      initialValues: initialValues,
-      validationSchema: signUpSchema,
-      onSubmit: (values) => {
-        console.log("dayam", values);
-        signInUser(values.email, values.password)
-      },
-    });
+  const {
+    values, errors, handleBlur, handleChange, handleSubmit,
+  } = useFormik({
+    initialValues,
+    validationSchema: signUpSchema,
+    onSubmit: (values) => {
+      console.log("dayam", values);
+      signInUser(values.email, values.password);
+    },
+  });
 
   return (
     <Formdiv>
       <form onSubmit={handleSubmit}>
         <Input
-          type='email'
-          name='email'
-          id='email'
-          autoComplete='off'
-          placeholder='email'
+          type="email"
+          name="email"
+          id="email"
+          autoComplete="off"
+          placeholder="email"
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.email && errors.email}
         />
         <PasswordInput
-          name='password'
-          type='password'
-          placeholder='password'
+          name="password"
+          type="password"
+          placeholder="password"
           value={values.password}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -70,7 +69,7 @@ const Login = () => {
           <Typography>Resend activation email.</Typography>
         </Boxx>
         <Btn>
-          <Button type="submit" > Login </Button>
+          <Button type="submit"> Login </Button>
         </Btn>
 
         <Box>
@@ -88,6 +87,6 @@ const Login = () => {
       </form>
     </Formdiv>
   );
-};
+}
 
 export default Login;

@@ -1,9 +1,7 @@
-import React from "react"
+import React from "react";
 
-const myFlat = () => {
-  return (
-    <div>myFlat</div>
-  )
-}
+const myFlat = () => (
+  <div>myFlat</div>
+);
 
-export default myFlat
+export default myFlat;

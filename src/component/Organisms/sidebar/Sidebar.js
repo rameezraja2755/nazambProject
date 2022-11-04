@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 // import Button from '@mui/material/Button';
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import imb from "../../../component/images/g5.jpg";
-import imc from "../../../component/images/g1.png";
-import imd from "../../../component/images/g2.png";
-import ime from "../../../component/images/g3.png";
-import imf from "../../../component/images/g5.jpg";
+import imb from "../../images/g5.jpg";
+import imc from "../../images/g1.png";
+import imd from "../../images/g2.png";
+import ime from "../../images/g3.png";
+import imf from "../../images/g5.jpg";
 import {
   Sidebar,
   SidebarCard,
@@ -16,37 +16,33 @@ import {
   Boxes,
 } from "./Sidebar.styled";
 
-const Chat = () => {
+function Chat() {
   const [Msg] = useState("");
   useEffect(() => {
     // show();
   }, [Msg]);
   return (
     <div className="chat">
-      {data.map((item) => {
-        return (
-          <>
-            <Sidebar>
-              <SidebarCard>
-                <Avter>
-                  <Avatar src={item.image} />
-                </Avter>
-                <InnerContent>
-                  <Boxes>
-                    <Typography variant="subtitle1">{item.usertype}</Typography>
-                    <Typography variant="subtitle2" sx={{ ml: "80px" }}>
-                      {item.now}
-                    </Typography>
-                    {item.unread && <Read>{item.unread}</Read>}
-                  </Boxes>
-                  <Typography variant="subtitle2">{item.msg}</Typography>
-                  {/* <Time>{item.timestamp}</Time> */}
-                </InnerContent>
-              </SidebarCard>
-            </Sidebar>
-          </>
-        );
-      })}
+      {data.map((item) => (
+        <Sidebar>
+          <SidebarCard>
+            <Avter>
+              <Avatar src={item.image} />
+            </Avter>
+            <InnerContent>
+              <Boxes>
+                <Typography variant="subtitle1">{item.usertype}</Typography>
+                <Typography variant="subtitle2" sx={{ ml: "80px" }}>
+                  {item.now}
+                </Typography>
+                {item.unread && <Read>{item.unread}</Read>}
+              </Boxes>
+              <Typography variant="subtitle2">{item.msg}</Typography>
+              {/* <Time>{item.timestamp}</Time> */}
+            </InnerContent>
+          </SidebarCard>
+        </Sidebar>
+      ))}
       {/* <input
         style={{width: "80%"}}
         placeholder="Type your reply!"
@@ -63,7 +59,7 @@ const Chat = () => {
       </Button> */}
     </div>
   );
-};
+}
 export default Chat;
 
 const data = [

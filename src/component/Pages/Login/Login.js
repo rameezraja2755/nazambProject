@@ -3,12 +3,8 @@ import React from "react";
 // import {userDetailContext} from "../../../Context/GlobalVar";
 import LoginForm from "../../Organisms/logIn/Login";
 
-
-
-const Login = () => {
- 
+function Login() {
   // const [userDetail] = useContext(userDetailContext);
- 
 
   // const loginFunction = () => {
   //   userDetail.loggedIn(true);
@@ -23,7 +19,6 @@ const Login = () => {
       <LoginForm />
     </div>
   );
-};
-
+}
 
 export default Login;

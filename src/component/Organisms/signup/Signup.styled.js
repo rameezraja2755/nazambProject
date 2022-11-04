@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
-import { styled } from "@mui/system";
-import { Box } from "@mui/system";
+import { styled, Box } from "@mui/system";
 
 const Formdiv = styled("div")({
   width: "100%",

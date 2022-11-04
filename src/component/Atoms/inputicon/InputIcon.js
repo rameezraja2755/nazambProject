@@ -30,11 +30,11 @@ export default function InputAdornments() {
             type="text"
             value={values.amount}
             onChange={handleChange("amount")}
-            endAdornment={
+            endAdornment={(
               <InputAdornment position="end">
                 <DoneIcon />
               </InputAdornment>
-            }
+            )}
             label="amount"
           />
         </FormControl>

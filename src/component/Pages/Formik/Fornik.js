@@ -1,8 +1,6 @@
-
 // import React from 'react'
 // // import { Formik, Form, Field, ErrorMessage } from "Fornik";
 // import Fornik from "./FormikForm"
-
 
 // <form>
 // <div className="form-row">
@@ -24,7 +22,7 @@
 //       id="email"
 //       autoComplete='off'
 //       placeholder='Email'
-      
+
 //     />
 //   </div>
 
@@ -35,9 +33,8 @@
 //     name="password"
 //     id="password"
 //   />
-  
-// </div>
 
+// </div>
 
 // <div className="form-row">
 //   <label htmlFor=" confirm password"> confirm Password</label>
@@ -46,7 +43,7 @@
 //     name="confirm password"
 //     id="confirm password"
 //   />
-  
+
 // </div>
 
 // <div className='modal-button'>
@@ -56,7 +53,6 @@
 //     <button className='input-button' type='submit'>Registration</button>
 
 // </div>
-
 
 // </form>
 // export default Fornik;

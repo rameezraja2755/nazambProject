@@ -1,6 +1,5 @@
 import { Button } from "@mui/material";
-import { styled } from "@mui/system";
-import { Box } from "@mui/system";
+import { styled, Box } from "@mui/system";
 
 const MainContainer = styled("p")({
   margin: " 10px auto",
@@ -80,4 +79,6 @@ const Boxx = styled(Box)({
   margin: "17px 20px",
 });
 
-export { MainContainer, Formdiv, Parentbox, BoxImg, Imagediv, Boxx, Btn };
+export {
+  MainContainer, Formdiv, Parentbox, BoxImg, Imagediv, Boxx, Btn,
+};

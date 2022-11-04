@@ -3,9 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import {UserContextProvider} from "./Context/userContext"
-
-
+import { UserContextProvider } from "./Context/userContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +11,7 @@ root.render(
     <UserContextProvider>
       <App />
     </UserContextProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

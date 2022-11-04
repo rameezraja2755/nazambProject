@@ -32,7 +32,7 @@
 //                   value={values.Name}
 //                   onChange={handleChange}
 //                   onBlur={handleBlur}
-//                   className={errors.Name && touched.Name ? 
+//                   className={errors.Name && touched.Name ?
 //                   "input-error" : null}
 //                 />
 //                 {errors.Name && touched.Name && (
@@ -48,7 +48,7 @@
 //                     value={values.email}
 //                     onChange={handleChange}
 //                     onBlur={handleBlur}
-//                     className={errors.email && touched.email ? 
+//                     className={errors.email && touched.email ?
 //                     "input-error" : null}
 //                   />
 //                   {errors.email && touched.email && (
@@ -65,7 +65,7 @@
 //                   value={values.password}
 //                   onChange={handleChange}
 //                   onBlur={handleBlur}
-//                   className={errors.password && touched.password ? 
+//                   className={errors.password && touched.password ?
 //                    "input-error" : null}
 //                 />
 //                 {errors.password && touched.password && (

@@ -1,7 +1,5 @@
-import { styled } from "@mui/system";
-import { Box } from "@mui/system";
-import { Button, Typography } from "@mui/material";
-import { Card } from "@mui/material";
+import { styled, Box } from "@mui/system";
+import { Button, Typography, Card } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 
 // const MainBox = styled(Box)({
