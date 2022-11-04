@@ -37,9 +37,9 @@ const theme = createTheme({
             fontSize: "16px",
             fontWeight: 400,
             letterSpacing: "0em",
-            borderRadius:"8px",
-            height:"40px",
-            width:"144px",
+            borderRadius: "8px",
+            height: "40px",
+            width: "144px",
 
             "&:hover": {
               background: "#1D9BD6",
@@ -145,13 +145,13 @@ const theme = createTheme({
         },
       },
     },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        notchedOutline: {
-          borderColor: "#E6E8F0",
-        },
-      },
-    },
+    // MuiOutlinedInput: {
+    //   styleOverrides: {
+    //     notchedOutline: {
+    //       borderColor: "#E6E8F0",
+    //     },
+    //   },
+    // },
     MuiTableHead: {
       styleOverrides: {
         root: {
@@ -277,7 +277,7 @@ const theme = createTheme({
     // Font:"Poppins",
     // Weight:"300",Size:"12px",LineHeight:"16px",
     button: {
-    fontWeight: 600,
+      fontWeight: 600,
     },
     fontFamily:
       '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
@@ -285,40 +285,38 @@ const theme = createTheme({
       fontSize: "14",
       fontWeight: "400",
       lineHeight: "30px",
-      fontFamily:"poppins",
-      color:"#64C4BC",
-      Width:"182px",
-      Height:"22px"
+      fontFamily: "poppins",
+      color: "#64C4BC",
+      Width: "182px",
+      Height: "22px",
     },
-    
+
     body2: {
-      fontFamily:" Poppins",
+      fontFamily: " Poppins",
       fontSize: "16px",
       fontWeight: "400",
-      lineHeight:" 20px",
+      lineHeight: " 20px",
       letterSpacing: "0em",
-      textAlign: "left"
-      
+      textAlign: "left",
+      color: "black",
     },
     subtitle1: {
       fontFamily: "Poppins",
       fontSize: "14px",
-      fontWeight:" 500",
-      fontWeight:"bold",
+      fontWeight: " 500",
+      fontWeight: "bold",
       // lineHeight:" 20px",
-      letterSpacing:" 0em",
-      textAlign: "left"
-     
+      letterSpacing: " 0em",
+      textAlign: "left",
     },
     subtitle2: {
-      fontFamily:" Poppins",
+      fontFamily: " Poppins",
       fontSize: "12px",
-      font:"Poppins",
-      fontWeight:" 300",
+      font: "Poppins",
+      fontWeight: " 300",
       lineHeight: "16px",
       letterSpacing: "0em",
-      textAlign: "left"
-      
+      textAlign: "left",
     },
     overline: {
       fontSize: "0.75rem",
@@ -328,9 +326,13 @@ const theme = createTheme({
       textTransform: "uppercase",
     },
     caption: {
-      fontSize: "0.75rem",
-      fontWeight: 400,
-      lineHeight: 1.66,
+      fontFamily: " Poppins",
+      fontSize: "14px",
+      fontWeight: " 400",
+      lineHeight: "20px",
+      letterSpacing: "0em",
+      textAlign: "left",
+      color: "white",
     },
     h1: {
       fontWeight: 700,

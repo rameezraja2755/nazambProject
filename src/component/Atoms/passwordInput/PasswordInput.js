@@ -1,63 +1,51 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Input from '@mui/material/Input';
-import FilledInput from '@mui/material/FilledInput';
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormHelperText from '@mui/material/FormHelperText';
-import FormControl from '@mui/material/FormControl';
-import TextField from '@mui/material/TextField';
-import Visibility from '@mui/icons-material/Visibility';
-import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import { Typography } from '@mui/material';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import InputLabel from "@mui/material/InputLabel";
+import InputAdornment from "@mui/material/InputAdornment";
+import FormControl from "@mui/material/FormControl";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { TextField } from "@mui/material";
 
-
-export default function InputAdornments() {
-  const [values, setValues] = React.useState({
-    password: '',
-  });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+export default function InputAdornments({
+  type,
+  name,
+  onChange,
+  value,
+  placeholder,
+  error,
+}) {
+  const [showPassword, setShowPassword] = React.useState(false);
 
   return (
-    <Box sx={{textAlign:"center", alignItems:"center"}}>
+    <Box sx={{ textAlign: "center", alignItems: "center" }}>
       <div>
-        <FormControl sx={{ m: 1, width: '296px' }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-password"
-            type={values.showPassword ? 'text' : 'password'}
-            value={values.password}
-            color="error"
-            onChange={handleChange('password')}
+        <FormControl sx={{ m: 1, width: "296px" }} variant='outlined'>
+          {/* <InputLabel htmlFor='outlined-adornment-password'>
+            {placeholder}
+          </InputLabel> */}
+          <TextField
+            id='outlined-adornment-password'
+            type={showPassword ? "text" : "password"}
+            value={value}
+            error={error && true}
+            name={name}
+            helperText={error}
+            onChange={onChange}
             endAdornment={
-              <InputAdornment position="end">
+              <InputAdornment position='end'>
                 <IconButton
-                  aria-label="toggle password visibility"
-                  onClick={handleClickShowPassword}
-                  onMouseDown={handleMouseDownPassword}
-                  edge="end"
-                >
-                  {values.showPassword ? <VisibilityOff /> : <Visibility />}
+                  aria-label='toggle password visibility'
+                  onClick={() => setShowPassword(!showPassword)}
+                  // onMouseDown={handleMouseDownPassword}
+                  edge='end'>
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
                 </IconButton>
               </InputAdornment>
             }
-            label="Password"
+            label='Password'
           />
         </FormControl>
       </div>
