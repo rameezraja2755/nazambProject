@@ -6,8 +6,10 @@ import { Box } from '@mui/system';
 const NavbarBlue = () => {
   return (
           <Box >
-           <Link to="/"> Home </Link>
-            <Link to="/about"> About </Link>
+           <Link style={{textDecoration:"none",color:"#1D9BD6",borderBottom:"5px solid #1D9BD6"}} to="/"> Home </Link>
+
+            <Link style={{textDecoration:"none",color:"#1D9BD6",borderBottom:"5px solid #1D9BD6"}}to="/Login"> Login </Link>
+
           </Box>
     
   )

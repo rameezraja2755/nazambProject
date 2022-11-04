@@ -13,39 +13,31 @@ export default function InputAdornments({
   value,
   onChange,
   onBlur,
-  error,
 }) {
-  // const handleChange = (prop) => (event) => {
-  //   setValues({ ...values, [prop]: event.target.value });
-  // };
+  const [values, setValues] = React.useState({
+    amount: "",
+  });
+  const handleChange = (prop) => (event) => {
+    setValues({ ...values, [prop]: event.target.value });
+  };
   return (
-    <Box>
-      <FormControl sx={{ m: 1, width: "296px" }}>
-        <TextField
-          error={error && true}
-          id={id}
-          type={type}
-          value={value}
-          onChange={onChange}
-          name={name}
-          label={placeholder}
-          // placeholder={placeholder}
-          onBlur={onBlur}
-          helperText={error}
-        />
-        {/* <InputLabel htmlFor='outlined-adornment-email'>
-          {placeholder}
-        </InputLabel>
-        <OutlinedInput
-          // id='outlined'
-          type={type}
-          value={value}
-          onChange={onChange}
-          name={name}
-          // placeholder={placeholder}
-          onBlur={onBlur}
-        /> */}
-      </FormControl>
+    <Box sx={{}}>
+      <div>
+        <FormControl sx={{ m: 1, width: "296px" }} variant="outlined">
+          <InputLabel htmlFor="outlined-adornment-email">
+            {placeholder}
+          </InputLabel>
+          <OutlinedInput
+            id={id}
+            type={type}
+            value={value}
+            onChange={onChange}
+            name={name}
+            placeholder={placeholder}
+            onBlur={onBlur}
+          />
+        </FormControl>
+      </div>
     </Box>
   );
 }
