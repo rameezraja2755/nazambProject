@@ -1,5 +1,5 @@
 import React, {
-  createContext, useContext, useState, useEffect,
+  createContext, useContext, useState, useEffect, useMemo,
 } from "react";
 import {
   signInWithEmailAndPassword,
@@ -9,7 +9,7 @@ import {
   updateProfile,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "../firebaseConfig";
+import { auth } from "../FirebaseConfig";
 
 export const UserContext = createContext({});
 
@@ -61,7 +61,7 @@ export function UserContextProvider({ children }) {
 
   const forgotPassword = (email) => sendPasswordResetEmail(auth, email);
 
-  const contextValue = {
+  const returnValues = () => ({
     user,
     loading,
     error,
@@ -69,7 +69,29 @@ export function UserContextProvider({ children }) {
     registerUser,
     logoutUser,
     forgotPassword,
-  };
+  });
+
+  const contextValue = useMemo(returnValues, [{
+    user,
+    loading,
+    error,
+    signInUser,
+    registerUser,
+    logoutUser,
+    forgotPassword,
+  }]);
+
+  console.log(contextValue);
+
+  // const contextValue = {
+  //   user,
+  //   loading,
+  //   error,
+  //   signInUser,
+  //   registerUser,
+  //   logoutUser,
+  //   forgotPassword,
+  // };
   return (
     <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );

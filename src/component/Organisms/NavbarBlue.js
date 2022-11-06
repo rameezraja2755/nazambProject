@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Box } from "@mui/system";
+import Box from "@mui/material/Box";
 
 function NavbarBlue() {
   return (

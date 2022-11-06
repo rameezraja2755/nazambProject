@@ -7,12 +7,12 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "../component/Pages/Home/Home";
-import Login from "../component/Organisms/logIn/Login";
+import Login from "../component/Organisms/LogIn/Login";
 import MyFlat from "../component/Pages/MyFlat/MyFlat";
 import Protected from "../Protected";
-import Chat from "../component/Organisms/sidebar/Sidebar";
+import Chat from "../component/Organisms/Sidebar/Sidebar";
 
-import { useUserContext } from "../Context/userContext";
+import { useUserContext } from "../Context/UserContext";
 
 function Router() {
   // console.log('userDetail', AuthContext, userDetailContext)

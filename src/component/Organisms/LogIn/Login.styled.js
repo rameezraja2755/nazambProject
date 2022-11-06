@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import { styled, Box } from "@mui/system";
 
-const MainContainer = styled("p")({
+const Dash = styled("p")({
   margin: " 10px auto",
   textAlign: "center",
   fontFamily: "sans-serif",
@@ -35,7 +35,7 @@ const Btn = styled(Button)({
   marginLeft: "150px",
 });
 
-const Formdiv = styled("div")({
+const MainContainer = styled("div")({
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -80,5 +80,5 @@ const Boxx = styled(Box)({
 });
 
 export {
-  MainContainer, Formdiv, Parentbox, BoxImg, Imagediv, Boxx, Btn,
+  MainContainer, Dash, Parentbox, BoxImg, Imagediv, Boxx, Btn,
 };

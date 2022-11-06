@@ -1,10 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import Input from "../../Atoms/input/Input";
-import PasswordInput from "../../Atoms/passwordInput/PasswordInput";
+import { Button } from "@mui/material";
+import Input from "../../Atoms/Input/Input";
+import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import { Formdiv } from "./Signup.styled";
-import Button from "../../Atoms/button/Button";
 
 const signUpSchema = Yup.object({
   FirstName: Yup.string()
@@ -32,11 +32,11 @@ const initialValues = {
 
 function Signup() {
   const {
-    values, errors, touched, handleBlur, handleChange, handleSubmit,
+    values, errors, handleBlur, handleChange, handleSubmit,
   } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
-    onSubmit: (values, actions) => {
+    onSubmit: () => {
       console.log(errors, values, "submit");
     },
   });

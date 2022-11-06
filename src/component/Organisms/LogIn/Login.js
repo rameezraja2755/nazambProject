@@ -4,19 +4,19 @@ import { Typography, Box } from "@mui/material";
 import { useFormik } from "formik";
 // import { signUpSchema } from "./schemas";
 import * as Yup from "yup";
-import PasswordInput from "../../Atoms/passwordInput/PasswordInput";
-import Input from "../../Atoms/input/Input";
-import img from "../../images/google.png";
+import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
+import Input from "../../Atoms/Input/Input";
+import img from "../../Images/google.png";
 import {
   MainContainer,
-  Formdiv,
+  Dash,
   Parentbox,
   BoxImg,
   Imagediv,
   Boxx,
   Btn,
-} from "./Login.styled.js";
-import { useUserContext } from "../../../Context/userContext";
+} from "./Login.styled";
+import { useUserContext } from "../../../Context/UserContext";
 
 const signUpSchema = Yup.object({
   email: Yup.string().email().required("please enter your email"),
@@ -35,14 +35,14 @@ function Login() {
   } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
-    onSubmit: (values) => {
+    onSubmit: () => {
       console.log("dayam", values);
       signInUser(values.email, values.password);
     },
   });
 
   return (
-    <Formdiv>
+    <MainContainer>
       <form onSubmit={handleSubmit}>
         <Input
           type="email"
@@ -69,11 +69,11 @@ function Login() {
           <Typography>Resend activation email.</Typography>
         </Boxx>
         <Btn>
-          <Button type="submit"> Login </Button>
+          <Button sx={{ background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)" }} variant="contained" type="submit"> Login </Button>
         </Btn>
 
         <Box>
-          <MainContainer>or</MainContainer>
+          <Dash>or</Dash>
         </Box>
         <Parentbox>
           <Imagediv>
@@ -85,7 +85,7 @@ function Login() {
           </Box>
         </Parentbox>
       </form>
-    </Formdiv>
+    </MainContainer>
   );
 }
 
