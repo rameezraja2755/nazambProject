@@ -2,9 +2,10 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
-import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import DoneIcon from "@mui/icons-material/Done";
+
+c;
 
 export default function InputAdornments() {
   const [values, setValues] = React.useState({
@@ -16,7 +17,7 @@ export default function InputAdornments() {
   };
 
   return (
-    <Box sx={{}}>
+    <Box>
       <div>
         <FormControl sx={{ m: 1, width: "25ch" }} variant="outlined">
           <InputLabel htmlFor="outlined-adornment-amount">amount</InputLabel>

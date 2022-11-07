@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import { Button } from "@mui/material";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
-import { Formdiv } from "./Signup.styled";
+// import MainContainer from "./Signup.styled";
 
 const signUpSchema = Yup.object({
   FirstName: Yup.string()
@@ -41,8 +41,9 @@ function Signup() {
     },
   });
   console.log(values, "values", errors);
+
   return (
-    <Formdiv>
+    <div>
       <form onSubmit={handleSubmit}>
         <Input
           type="FirstName"
@@ -86,6 +87,7 @@ function Signup() {
           onBlur={handleBlur}
           error={errors.password && errors.password}
         />
+
         <PasswordInput
           name="ConfirmPassword"
           type="ConfirmPassword"
@@ -95,9 +97,21 @@ function Signup() {
           onBlur={handleBlur}
           error={errors.ConfirmPassword && errors.ConfirmPassword}
         />
-        <Button />
+        <Button
+          sx={{
+            background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)",
+            width: "144px",
+            height: "40px",
+          }}
+          variant="contained"
+          type="submit"
+        >
+          {" "}
+          Sign in
+          {" "}
+        </Button>
       </form>
-    </Formdiv>
+    </div>
   );
 }
 

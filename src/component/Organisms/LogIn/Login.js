@@ -7,10 +7,14 @@ import * as Yup from "yup";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import Input from "../../Atoms/Input/Input";
 import img from "../../Images/google.png";
+// import InputAdornment from "@mui/material/InputAdornment";
+// import InputAdornment from "../../Atoms/Inputicon/InputIcon"
+// import DoneIcon from "@mui/icons-material/Done";
+
 import {
   MainContainer,
   Dash,
-  Parentbox,
+  GoogleBox,
   BoxImg,
   Imagediv,
   Boxx,
@@ -30,7 +34,9 @@ const initialValues = {
 function Login() {
   const { signInUser } = useUserContext();
 
-  const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
+  const {
+    values, errors, handleBlur, handleChange, handleSubmit,
+  } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
     onSubmit: () => {
@@ -43,24 +49,27 @@ function Login() {
     <MainContainer>
       <form onSubmit={handleSubmit}>
         <Input
-          type='email'
-          name='email'
-          id='email'
-          autoComplete='off'
-          placeholder='email'
+          type="email"
+          name="email"
+          id="email"
+          autoComplete="off"
+          placeholder="email"
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.email && errors.email}
         />
         <PasswordInput
-          name='password'
-          type='password'
-          placeholder='password'
+          name="password"
+          type="password"
+          placeholder="password"
           value={values.password}
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.password && errors.password}
+          //  <InputAdornment position="end">
+          //       <DoneIcon />
+          //     </InputAdornment>
         />
         <Boxx>
           <Typography>Forgot your password?</Typography>
@@ -73,17 +82,19 @@ function Login() {
               width: "144px",
               height: "40px",
             }}
-            variant='contained'
-            type='submit'>
+            variant="contained"
+            type="submit"
+          >
             {" "}
-            Sign in{" "}
+            Sign in
+            {" "}
           </Button>
         </Btn>
 
         <Box>
           <Dash>or</Dash>
         </Box>
-        <Parentbox>
+        <GoogleBox>
           <Imagediv>
             <BoxImg src={img} />
           </Imagediv>
@@ -91,7 +102,7 @@ function Login() {
           <Box>
             <a>Sign in with Google</a>
           </Box>
-        </Parentbox>
+        </GoogleBox>
       </form>
     </MainContainer>
   );

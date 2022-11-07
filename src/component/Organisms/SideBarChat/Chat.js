@@ -6,6 +6,7 @@ import Imb from "../../Images/boy.jpg";
 import Imc from "../../Images/g1.png";
 
 import Imf from "../../Images/g3.png";
+import Navbar from "./Navbar";
 
 import {
   Sidebar,
@@ -14,7 +15,7 @@ import {
   InnerContent,
   Read,
   Boxes,
-} from "./Sidebar.styled";
+} from "./Chat.styled";
 
 const Data = [
   {
@@ -80,6 +81,7 @@ function Chat() {
   }, [Msg]);
   return (
     <div className="chat">
+      <Navbar />
       {Data.map((item) => (
         <Sidebar>
           <SidebarCard>
@@ -100,6 +102,7 @@ function Chat() {
           </SidebarCard>
         </Sidebar>
       ))}
+
       {/* <input
         style={{width: "80%"}}
         placeholder="Type your reply!"

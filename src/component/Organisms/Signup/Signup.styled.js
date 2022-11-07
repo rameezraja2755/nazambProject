@@ -1,7 +1,6 @@
-import { Button } from "@mui/material";
 import { styled, Box } from "@mui/system";
 
-const Formdiv = styled("div")({
+const MainContainer = styled(Box)({
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -11,4 +10,4 @@ const Formdiv = styled("div")({
   height: "100vh",
 });
 
-export { Formdiv };
+export default { MainContainer };

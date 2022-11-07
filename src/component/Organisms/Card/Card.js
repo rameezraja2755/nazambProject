@@ -1,17 +1,15 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+
 import Typography from "@mui/material/Typography";
-import { SC_Card, SB_Card, SD_Card } from "./Card.styled";
+import { ScCard, SbCard, SdCard } from "./Card.styled";
+import Navbar from "./NavChatboard";
 
 export default function BasicCard() {
   return (
     <>
       {/* <Boxes> */}
-      <SC_Card>
+      <Navbar />
+      <ScCard>
 
         <Typography variant="body2">
           The process is usually completed by a group of people with different
@@ -20,19 +18,19 @@ export default function BasicCard() {
           depending upon the nature and type of the product involved.
         </Typography>
 
-      </SC_Card>
-      <SB_Card>
+      </ScCard>
+      <SbCard>
         <Typography variant="body2">
           Option 1 with more text that fills one line
         </Typography>
-      </SB_Card>
+      </SbCard>
 
-      <SD_Card>
+      <SdCard>
 
         <Typography variant="body2">
           Option 2
         </Typography>
-      </SD_Card>
+      </SdCard>
 
     </>
   );

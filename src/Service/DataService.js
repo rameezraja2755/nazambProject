@@ -1,8 +1,8 @@
 import { db } from '@/firebase'
 
 class DatabaseService {
-  collection
-
+  collection 
+  
   constructor(collectionName) {
     this.collection = db.collection(collectionName)
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { Typography, Link } from "@mui/material";
+import { Link } from "@mui/material";
 
 function MainNavbar() {
   return (

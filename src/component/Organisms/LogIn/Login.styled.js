@@ -53,7 +53,7 @@ const MainContainer = styled("div")({
 //   padding: "20px",
 // });
 
-const Parentbox = styled("box")({
+const GoogleBox = styled("box")({
   display: "flex",
   justifyContent: "center",
   // textAlign:"center",
@@ -81,4 +81,6 @@ const Boxx = styled(Box)({
   margin: "17px 20px",
 });
 
-export { MainContainer, Dash, Parentbox, BoxImg, Imagediv, Boxx, Btn };
+export {
+  MainContainer, Dash, GoogleBox, BoxImg, Imagediv, Boxx, Btn,
+};
