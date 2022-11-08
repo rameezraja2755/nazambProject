@@ -1,7 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
-import InputLabel from "@mui/material/InputLabel";
+import { TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
 
 export default function InputAdornments({
@@ -12,22 +11,23 @@ export default function InputAdornments({
   value,
   onChange,
   onBlur,
+  error,
 }) {
   return (
     <Box sx={{}}>
       <div>
-        <FormControl sx={{ m: 1, width: "296px" }} variant="outlined">
-          <InputLabel htmlFor="outlined-adornment-email">
-            {placeholder}
-          </InputLabel>
-          <OutlinedInput
+        <FormControl sx={{ m: 1, width: "296px" }}>
+          <TextField
+            error={error && true}
             id={id}
             type={type}
             value={value}
             onChange={onChange}
             name={name}
-            placeholder={placeholder}
+            label={placeholder}
+            // placeholder={placeholder}
             onBlur={onBlur}
+            helperText={error}
           />
         </FormControl>
       </div>

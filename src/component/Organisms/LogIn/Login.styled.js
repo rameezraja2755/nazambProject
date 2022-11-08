@@ -1,6 +1,8 @@
 import { Button } from "@mui/material";
 import { styled, Box } from "@mui/system";
 
+// import WebFont from "webfontloader";
+
 const Dash = styled("p")({
   margin: " 10px auto",
   textAlign: "center",
@@ -79,6 +81,4 @@ const Boxx = styled(Box)({
   margin: "17px 20px",
 });
 
-export {
-  MainContainer, Dash, Parentbox, BoxImg, Imagediv, Boxx, Btn,
-};
+export { MainContainer, Dash, Parentbox, BoxImg, Imagediv, Boxx, Btn };

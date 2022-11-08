@@ -130,13 +130,6 @@ const theme = createTheme({
         },
       },
     },
-    // MuiOutlinedInput: {
-    //   styleOverrides: {
-    //     notchedOutline: {
-    //       borderColor: "#E6E8F0",
-    //     },
-    //   },
-    // },
     MuiTableHead: {
       styleOverrides: {
         root: {
@@ -265,15 +258,16 @@ const theme = createTheme({
       fontWeight: 600,
     },
     fontFamily:
-      "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\"",
+      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     body1: {
       fontSize: "14",
       fontWeight: "400",
       lineHeight: "30px",
-      fontFamily: "poppins",
+      // fontFamily: "poppins",
       color: "#64C4BC",
       Width: "182px",
       Height: "22px",
+      fontFamily: "'Poppins', sans-serif",
     },
 
     body2: {

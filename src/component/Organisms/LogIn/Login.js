@@ -30,9 +30,7 @@ const initialValues = {
 function Login() {
   const { signInUser } = useUserContext();
 
-  const {
-    values, errors, handleBlur, handleChange, handleSubmit,
-  } = useFormik({
+  const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
     onSubmit: () => {
@@ -45,20 +43,20 @@ function Login() {
     <MainContainer>
       <form onSubmit={handleSubmit}>
         <Input
-          type="email"
-          name="email"
-          id="email"
-          autoComplete="off"
-          placeholder="email"
+          type='email'
+          name='email'
+          id='email'
+          autoComplete='off'
+          placeholder='email'
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.email && errors.email}
         />
         <PasswordInput
-          name="password"
-          type="password"
-          placeholder="password"
+          name='password'
+          type='password'
+          placeholder='password'
           value={values.password}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -69,7 +67,17 @@ function Login() {
           <Typography>Resend activation email.</Typography>
         </Boxx>
         <Btn>
-          <Button sx={{ background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)" }} variant="contained" type="submit"> Login </Button>
+          <Button
+            sx={{
+              background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)",
+              width: "144px",
+              height: "40px",
+            }}
+            variant='contained'
+            type='submit'>
+            {" "}
+            Sign in{" "}
+          </Button>
         </Btn>
 
         <Box>
@@ -81,7 +89,7 @@ function Login() {
           </Imagediv>
 
           <Box>
-            <Typography>Sign in with Google</Typography>
+            <a>Sign in with Google</a>
           </Box>
         </Parentbox>
       </form>
