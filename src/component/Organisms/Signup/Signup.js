@@ -1,10 +1,9 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Button } from "@mui/material";
+import { Button, Box } from "@mui/material";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
-// import MainContainer from "./Signup.styled";
 
 const signUpSchema = Yup.object({
   FirstName: Yup.string()
@@ -37,13 +36,13 @@ function Signup() {
     initialValues,
     validationSchema: signUpSchema,
     onSubmit: () => {
-      console.log(errors, values, "submit");
+      // console.log(errors, values, "submit");
     },
   });
-  console.log(values, "values", errors);
+  // console.log(values, "values", errors);
 
   return (
-    <div>
+    <Box style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
       <form onSubmit={handleSubmit}>
         <Input
           type="FirstName"
@@ -69,11 +68,11 @@ function Signup() {
         />
         <Input
           type=""
-          name="email"
+          name="mail"
           id="email"
           autoComplete="off"
-          placeholder="email"
-          value={values.Email}
+          placeholder="Email"
+          value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
           error={errors.email && errors.email}
@@ -102,6 +101,8 @@ function Signup() {
             background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)",
             width: "144px",
             height: "40px",
+            marginTop: "10px",
+            marginLeft: "10px",
           }}
           variant="contained"
           type="submit"
@@ -111,7 +112,7 @@ function Signup() {
           {" "}
         </Button>
       </form>
-    </div>
+    </Box>
   );
 }
 
