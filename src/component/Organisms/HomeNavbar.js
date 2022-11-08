@@ -52,7 +52,6 @@ function HomeNavbar() {
         }}
         to="/Signup"
       >
-
         Signup
       </Link>
     </Box>
