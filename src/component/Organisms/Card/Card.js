@@ -2,13 +2,13 @@ import * as React from "react";
 
 import Typography from "@mui/material/Typography";
 import { ScCard, SbCard, SdCard } from "./Card.styled";
-import Navbar from "./NavChatboard";
+// import Navbar from "./NavChatboard";
 
 export default function BasicCard() {
   return (
     <>
       {/* <Boxes> */}
-      <Navbar />
+      {/* <Navbar /> */}
       <ScCard>
 
         <Typography variant="body2">

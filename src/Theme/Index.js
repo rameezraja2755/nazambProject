@@ -180,13 +180,13 @@ const theme = createTheme({
     },
     divider: "#E6E8F0",
     primary: {
-      main: "#1D9BD6",
+      main: "#E4E5E7",
       light: "#64C4BC",
       dark: "#528079",
       contrastText: "#EBEBEB",
     },
     secondary: {
-      main: "#FBCD41",
+      main: "#656D79",
       light: "#3FC79A",
       dark: "#0B815A",
       contrastText: "#FFFFFF",
@@ -278,6 +278,15 @@ const theme = createTheme({
       letterSpacing: "0em",
       textAlign: "left",
       color: "black",
+    },
+    body3: {
+      fontFamily: " Poppins",
+      fontSize: "16px",
+      fontWeight: "400",
+      lineHeight: " 20px",
+      letterSpacing: "0em",
+      textAlign: "left",
+      color: "white",
     },
     subtitle1: {
       fontFamily: "Poppins",

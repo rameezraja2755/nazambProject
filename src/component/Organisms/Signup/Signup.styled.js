@@ -1,6 +1,6 @@
 import { styled, Box } from "@mui/system";
 
-const MainContainer = styled(Box)({
+const Container = styled(Box)({
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -10,4 +10,5 @@ const MainContainer = styled(Box)({
   height: "100vh",
 });
 
-export default { MainContainer };
+// eslint-disable-next-line import/prefer-default-export
+export { Container };

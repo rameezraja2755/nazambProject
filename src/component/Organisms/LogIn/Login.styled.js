@@ -1,8 +1,6 @@
 import { Button } from "@mui/material";
 import { styled, Box } from "@mui/system";
 
-// import WebFont from "webfontloader";
-
 const Dash = styled("p")({
   margin: " 10px auto",
   textAlign: "center",
@@ -44,14 +42,8 @@ const MainContainer = styled("div")({
   justifyContent: "center",
   textAlign: "center",
   alignItems: "center",
-  height: "100vh",
+  // height: "100vh",
 });
-// const InputIn = styled("input")({
-//   Width: "296px",
-//   Height: "51.69px",
-//   Radius: "8px",
-//   padding: "20px",
-// });
 
 const GoogleBox = styled("box")({
   display: "flex",
@@ -80,6 +72,9 @@ const Boxx = styled(Box)({
   textAlign: "start",
   margin: "17px 20px",
 });
+// const Inputt = styled(Box)(({ theme }) => ({
+//   border: `1px solid ${theme.palette.primary.main}`,
+// }));
 
 export {
   MainContainer, Dash, GoogleBox, BoxImg, Imagediv, Boxx, Btn,
