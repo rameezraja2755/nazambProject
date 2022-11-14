@@ -27,10 +27,10 @@ function HomeMainNavbar() {
             textDecoration: "none",
             color: "#1D9BD6",
           }}
-          to="/how is works"
+          to="/SignUp"
         >
           {" "}
-          How it Works
+          SignUp
           {" "}
         </Link>
 
@@ -41,7 +41,7 @@ function HomeMainNavbar() {
             borderBottom: "4px solid #64C4BC",
             borderRadius: "1px",
           }}
-          to="/Signin"
+          to="/login"
         >
           {" "}
           Sign In

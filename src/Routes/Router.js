@@ -25,7 +25,7 @@ function Router() {
         <Route path="/" exact element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/chat" element={<ChatBoard />} />
-        <Route path="/Signup" element={<Signup />} />
+        <Route path="/signup" element={<Signup />} />
         <Route
           path="/myFlat"
           element={(

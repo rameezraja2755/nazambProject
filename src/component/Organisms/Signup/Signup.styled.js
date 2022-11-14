@@ -10,5 +10,8 @@ const Container = styled(Box)({
   height: "100vh",
 });
 
-// eslint-disable-next-line import/prefer-default-export
-export { Container };
+const AlertBox = styled(Box)({
+  width: "30%",
+  marginLeft: "35%",
+});
+export { Container, AlertBox };

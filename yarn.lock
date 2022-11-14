@@ -1520,7 +1520,7 @@
   resolved "https://registry.npmjs.org/@firebase/firestore-types/-/firestore-types-2.5.1.tgz"
   integrity sha512-xG0CA6EMfYo8YeUxC8FeDzf6W3FX1cLlcAGBYV6Cku12sZRI81oWcu61RSKM66K6kUENP+78Qm8mvroBcm1whw==
 
-"@firebase/firestore@3.7.2", "@firebase/firestore@^3.7.2":
+"@firebase/firestore@3.7.2":
   version "3.7.2"
   resolved "https://registry.npmjs.org/@firebase/firestore/-/firestore-3.7.2.tgz"
   integrity sha512-PFTwzgRxCmUKb0jDx5zEAXpl/8dv8+Y0GBMghL9D7kt2ZeIA05yzo05yOKL/d5lShOPJ76/5dkOJty8zg1IBtw==
@@ -1534,10 +1534,10 @@
     node-fetch "2.6.7"
     tslib "^2.1.0"
 
-"@firebase/firestore@^3.7.2":
-  version "3.7.2"
-  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-3.7.2.tgz#de4ef7ea405082bcf140a59b01b960fc36dc175f"
-  integrity sha512-PFTwzgRxCmUKb0jDx5zEAXpl/8dv8+Y0GBMghL9D7kt2ZeIA05yzo05yOKL/d5lShOPJ76/5dkOJty8zg1IBtw==
+"@firebase/firestore@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@firebase/firestore/-/firestore-3.7.3.tgz#c839d6983f81d2853daeac42fba316a86102e5e4"
+  integrity sha512-hnA8hljwJBpejv0SPlt0yiej1wz3VRcLzoNAZujTCI1wLoADkRNsqic5uN/Ge0M0vbmHliLXtet/PDqvEbB9Ww==
   dependencies:
     "@firebase/component" "0.5.21"
     "@firebase/logger" "0.3.4"

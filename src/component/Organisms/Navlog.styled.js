@@ -1,7 +1,7 @@
-// import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { styled } from "@mui/system";
 
-const Boxes = styled("Box")({
+const Boxes = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "space-around",
@@ -9,4 +9,4 @@ const Boxes = styled("Box")({
   gap: "50%",
 });
 
-export default { Boxes };
+export default Boxes;
