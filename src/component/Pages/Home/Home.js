@@ -1,14 +1,9 @@
 import React from "react";
-import Navbar from "../../Organisms/HomeNavbar";
+import Navbar from "../../Organisms/Navlog";
 // import Navbar from "../../Organisms/Navbar";
 
 const home = () => (
-  <>
-
-    <p>homepage :p</p>
-    <Navbar />
-
-  </>
+  <Navbar />
 );
 
 export default home;

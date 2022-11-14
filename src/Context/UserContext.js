@@ -8,6 +8,7 @@ import {
   signOut,
   updateProfile,
   sendPasswordResetEmail,
+  signInWithPopup, GoogleAuthProvider,
 } from "firebase/auth";
 import { auth } from "../FirebaseConfig";
 
@@ -19,6 +20,8 @@ export function UserContextProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const provider = new GoogleAuthProvider();
 
   useEffect(() => {
     setLoading(true);
@@ -49,17 +52,44 @@ export function UserContextProvider({ children }) {
     setLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((res) => {
-        console.log(res);
+        setUser(res);
       })
       .catch((err) => setError(err.code))
-      .finally(() => setLoading(false));
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const logoutUser = () => {
     signOut(auth);
   };
 
-  const forgotPassword = (email) => sendPasswordResetEmail(auth, email);
+  const forgotPassword = (email) => { sendPasswordResetEmail(auth, email); };
+
+  // signin with google
+
+  const gSignin = () => {
+    setLoading(true);
+
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        console.log(token);
+        const res = result;
+        setUser(res.user);
+      }).catch((err) => {
+        // const errorCode = error.code;
+        setError(err.code);
+        // const errorMessage = error.message;
+        // The email of the user's account used.
+        // const { email } = error.customData;
+        // The AuthCredential type that was used.
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(credential);
+      });
+  };
 
   const returnValues = () => ({
     user,
@@ -69,6 +99,7 @@ export function UserContextProvider({ children }) {
     registerUser,
     logoutUser,
     forgotPassword,
+    gSignin,
   });
 
   const contextValue = useMemo(returnValues, [{
@@ -79,6 +110,7 @@ export function UserContextProvider({ children }) {
     registerUser,
     logoutUser,
     forgotPassword,
+    gSignin,
   }]);
 
   console.log(contextValue);

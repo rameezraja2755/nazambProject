@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import { Typography, Box } from "@mui/material";
 import { useFormik } from "formik";
 // import { signUpSchema } from "./schemas";
 import * as Yup from "yup";
+import { useNavigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import Input from "../../Atoms/Input/Input";
 import img from "../../Images/google.png";
-// import InputAdornment from "@mui/material/InputAdornment";
-// import InputAdornment from "../../Atoms/Inputicon/InputIcon"
-// import DoneIcon from "@mui/icons-material/Done";
 
 import {
   MainContainer,
@@ -31,8 +30,21 @@ const initialValues = {
   email: "",
   password: "",
 };
+
 function Login() {
-  const { signInUser } = useUserContext();
+  const {
+    signInUser, user, error, gSignin, forgotPassword,
+  } = useUserContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+      console.log("navigatee", user, error);
+    } else if (error) {
+      <Alert severity="error">This is an error alert — check it out!</Alert>;
+    }
+  }, [user, error]);
 
   const {
     values, errors, handleBlur, handleChange, handleSubmit,
@@ -40,8 +52,9 @@ function Login() {
     initialValues,
     validationSchema: signUpSchema,
     onSubmit: () => {
-      console.log("dayam", values);
       signInUser(values.email, values.password);
+
+      console.log("login page user ", user);
     },
   });
 
@@ -59,6 +72,7 @@ function Login() {
           onBlur={handleBlur}
           error={errors.email && errors.email}
         />
+
         <PasswordInput
           name="password"
           type="password"
@@ -71,9 +85,9 @@ function Login() {
           //       <DoneIcon />
           //     </InputAdornment>
         />
-        <Boxx>
+        <Boxx onClick={forgotPassword(values.email)}>
           <Typography>Forgot your password?</Typography>
-          <Typography>Resend activation email.</Typography>
+          {/* <Typography>Resend activation email.</Typography> */}
         </Boxx>
         <Btn>
           <Button
@@ -96,7 +110,7 @@ function Login() {
         </Box>
         <GoogleBox>
           <Imagediv>
-            <BoxImg src={img} />
+            <BoxImg src={img} onClick={gSignin} />
           </Imagediv>
 
           <Box>

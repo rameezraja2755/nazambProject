@@ -2,9 +2,11 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button } from "@mui/material";
+import Alert from "@mui/material/Alert";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
-// import MainContainer from "./Signup.styled";
+import { AlertBox } from "./Signup.styled";
+import { useUserContext } from "../../../Context/UserContext";
 
 const signUpSchema = Yup.object({
   FirstName: Yup.string()
@@ -31,6 +33,7 @@ const initialValues = {
 };
 
 function Signup() {
+  const { registerUser, error } = useUserContext();
   const {
     values, errors, handleBlur, handleChange, handleSubmit,
   } = useFormik({
@@ -38,6 +41,8 @@ function Signup() {
     validationSchema: signUpSchema,
     onSubmit: () => {
       console.log(errors, values, "submit");
+
+      registerUser(values.email, values.password, values.FirstName);
     },
   });
   console.log(values, "values", errors);
@@ -110,6 +115,12 @@ function Signup() {
           Sign in
           {" "}
         </Button>
+        <br />
+        <br />
+        <AlertBox>
+          {error ? <Alert variant="filled" severity="error">User Already registered!</Alert> : ""}
+        </AlertBox>
+
       </form>
     </div>
   );

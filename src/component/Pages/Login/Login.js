@@ -2,7 +2,7 @@ import React from "react";
 // import Navbar from "../../Organisms/Navbar";
 // import {userDetailContext} from "../../../Context/GlobalVar";
 import LoginForm from "../../Organisms/LogIn/Login";
-import HomeNavbar from "../../Organisms/HomeNavbar";
+import HomeNavbar from "../../Organisms/Navlog";
 
 function Login() {
   // const [userDetail] = useContext(userDetailContext);

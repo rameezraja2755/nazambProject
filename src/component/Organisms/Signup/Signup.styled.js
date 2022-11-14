@@ -10,4 +10,8 @@ const MainContainer = styled(Box)({
   height: "100vh",
 });
 
-export default { MainContainer };
+const AlertBox = styled(Box)({
+  width: "30%",
+  marginLeft: "35%",
+});
+export { MainContainer, AlertBox };
