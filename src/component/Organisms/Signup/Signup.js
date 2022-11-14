@@ -1,9 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { Button, Box } from "@mui/material";
+import { Button } from "@mui/material";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
+import { Container } from "./Signup.styled";
 
 const signUpSchema = Yup.object({
   FirstName: Yup.string()
@@ -42,7 +43,7 @@ function Signup() {
   // console.log(values, "values", errors);
 
   return (
-    <Box style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
+    <Container>
       <form onSubmit={handleSubmit}>
         <Input
           type="FirstName"
@@ -79,7 +80,6 @@ function Signup() {
         />
         <PasswordInput
           name="password"
-          type="password"
           placeholder="password"
           value={values.password}
           onChange={handleChange}
@@ -112,7 +112,7 @@ function Signup() {
           {" "}
         </Button>
       </form>
-    </Box>
+    </Container>
   );
 }
 

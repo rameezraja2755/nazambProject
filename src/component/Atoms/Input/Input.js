@@ -2,6 +2,25 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import { TextField } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
+import { styled } from "@mui/system";
+
+const MyComponent = styled(TextField)({
+  " & label.Mui-focused": {
+    color: " #1D9BD6",
+  },
+  " &.MuiOutlinedInput-notchedOutline": {
+    borderColor: " #1D9BD6",
+  },
+  "& .MuiOutlinedInput-root": {
+    borderColor: "#1D9BD6",
+    " & fieldset": {
+      borderColor: " #1D9BD6",
+    },
+    " &.Mui-focused fieldset": {
+      borderColor: " #1D9BD6",
+    },
+  },
+});
 
 export default function InputAdornments({
   type,
@@ -14,10 +33,10 @@ export default function InputAdornments({
   error,
 }) {
   return (
-    <Box sx={{}}>
+    <Box>
       <div>
         <FormControl sx={{ m: 1, width: "296px" }}>
-          <TextField
+          <MyComponent
             error={error && true}
             id={id}
             type={type}
@@ -25,7 +44,6 @@ export default function InputAdornments({
             onChange={onChange}
             name={name}
             label={placeholder}
-            // placeholder={placeholder}
             onBlur={onBlur}
             helperText={error}
           />

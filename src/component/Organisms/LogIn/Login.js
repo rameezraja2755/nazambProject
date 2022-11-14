@@ -7,9 +7,6 @@ import * as Yup from "yup";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import Input from "../../Atoms/Input/Input";
 import img from "../../Images/google.png";
-// import InputAdornment from "@mui/material/InputAdornment";
-// import InputAdornment from "../../Atoms/Inputicon/InputIcon"
-// import DoneIcon from "@mui/icons-material/Done";
 
 import {
   MainContainer,
@@ -19,6 +16,7 @@ import {
   Imagediv,
   Boxx,
   Btn,
+  // Input,
 } from "./Login.styled";
 import { useUserContext } from "../../../Context/UserContext";
 
@@ -51,9 +49,7 @@ function Login() {
         <Input
           type="email"
           name="email"
-          id="email"
-          autoComplete="off"
-          placeholder="email"
+          placeholder="Email"
           value={values.email}
           onChange={handleChange}
           onBlur={handleBlur}
@@ -61,7 +57,6 @@ function Login() {
         />
         <PasswordInput
           name="password"
-          type="password"
           placeholder="password"
           value={values.password}
           onChange={handleChange}
