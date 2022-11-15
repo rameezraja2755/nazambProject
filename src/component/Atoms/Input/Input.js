@@ -29,8 +29,9 @@ export default function InputAdornments({
   placeholder,
   value,
   onChange,
-  onBlur,
+  helperText,
   error,
+
 }) {
   return (
     <Box>
@@ -44,8 +45,8 @@ export default function InputAdornments({
             onChange={onChange}
             name={name}
             label={placeholder}
-            onBlur={onBlur}
-            helperText={error}
+            helperText={helperText}
+
           />
         </FormControl>
       </div>

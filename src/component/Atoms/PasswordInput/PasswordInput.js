@@ -31,7 +31,8 @@ export default function InputAdornments({
   onChange,
   value,
   error,
-  onBlur,
+  helperText,
+
 }) {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -48,9 +49,9 @@ export default function InputAdornments({
             value={value}
             error={error && true}
             name={name}
-            helperText={error}
             onChange={onChange}
-            onBlur={onBlur}
+            // label={placeholder}
+            helperText={helperText}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">

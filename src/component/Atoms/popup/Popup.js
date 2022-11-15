@@ -1,28 +1,28 @@
+/* eslint-disable react/jsx-pascal-case */
+/* eslint-disable linebreak-style */
 import * as React from "react";
 import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+
 import MessageIcon from "@mui/icons-material/Message";
-import { Box } from "@mui/system";
 import CloseIcon from "@mui/icons-material/Close";
-import { CardContent } from "@mui/material";
-import Avatar from "@mui/material/Avatar";
-import {
-  SC_button,
-  SB_Card,
-  InnerContent,
-  SidebarCard,
-  Read,
-  Boxes,
-  SD_avatar,
-  Typo,
-  Boxx,
-  Tygraphy,
-  Boxies,
-  Boxieses,
-  Bxxx,
-  Btn,
-} from "./Popup.styled";
+import * as SC from "./Popup.styled";
+// import {
+//   SC_Button,
+//   SB_Card,
+//   InnerContent,
+//   SidebarCard,
+//   Read,
+//   Boxes,
+//   Sd_Avatar,
+//   Typo,
+//   Boxx,
+//   Tygraphy,
+//   Boxies,
+//   Boxieses,
+//   Bxxx,
+//   Btn,
+// } from "./Popup.styled";
 
 export default function BasicPopover() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -40,13 +40,13 @@ export default function BasicPopover() {
 
   return (
     <div>
-      <SC_button
+      <SC.ChatBtn
         aria-describedby={id}
         variant="contained"
         onClick={handleClick}
       >
         <MessageIcon />
-      </SC_button>
+      </SC.ChatBtn>
       <Popover
         id={id}
         open={open}
@@ -57,51 +57,51 @@ export default function BasicPopover() {
           horizontal: "left",
         }}
       >
-        <SB_Card>
-          <SidebarCard>
-            <SD_avatar>
+        <SC.MainCard>
+          <SC.SidebarCard>
+            <SC.Sd_Avatar>
               <Typography>OS</Typography>
-            </SD_avatar>
-            <InnerContent>
-              <Typo variant="">Oleh Sheptytskyi</Typo>
-              <Tygraphy variant="body2">
+            </SC.Sd_Avatar>
+            <SC.InnerContent>
+              <SC.Typo variant="">Oleh Sheptytskyi</SC.Typo>
+              <SC.Tygraphy variant="body2">
                 Admin of Palo’s students place
-              </Tygraphy>
-            </InnerContent>
-            <Boxes>
-              <Read>
+              </SC.Tygraphy>
+            </SC.InnerContent>
+            <SC.Boxes>
+              <SC.Read>
                 <CloseIcon />
-              </Read>
-            </Boxes>
-          </SidebarCard>
-          <Boxx>
+              </SC.Read>
+            </SC.Boxes>
+          </SC.SidebarCard>
+          <SC.Boxx>
             <Typography variant=" caption">
               Option one with more text that fill one
             </Typography>
-          </Boxx>
+          </SC.Boxx>
 
-          <Boxx>
+          <SC.Boxx>
             <Typography variant=" caption">Option 2</Typography>
-          </Boxx>
+          </SC.Boxx>
 
-          <Boxies>
+          <SC.Boxies>
             <Typography variant="secondary.main.dark">3:16 pm</Typography>
-          </Boxies>
+          </SC.Boxies>
 
-          <Boxieses>
+          <SC.Boxieses>
             <Typography variant="body2">
               Option 1 with more text that fills one line
             </Typography>
-          </Boxieses>
+          </SC.Boxieses>
 
-          <Bxxx>
-            <Tygraphy variant="body2">
+          <SC.Bxxx>
+            <SC.Tygraphy variant="body2">
               ...send an order screenshot till june 24
               {" "}
-              <Btn>Send</Btn>
-            </Tygraphy>
-          </Bxxx>
-        </SB_Card>
+              <SC.Btn>Send</SC.Btn>
+            </SC.Tygraphy>
+          </SC.Bxxx>
+        </SC.MainCard>
       </Popover>
     </div>
   );

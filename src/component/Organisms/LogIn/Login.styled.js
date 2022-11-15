@@ -1,4 +1,3 @@
-import { Button } from "@mui/material";
 import { styled, Box } from "@mui/system";
 
 const Dash = styled("p")({
@@ -30,7 +29,7 @@ const Dash = styled("p")({
     position: "absolute",
   },
 });
-const Btn = styled(Button)({
+const Btn = styled("span")({
   display: "flex",
   marginLeft: "150px",
 });
@@ -42,13 +41,12 @@ const MainContainer = styled("div")({
   justifyContent: "center",
   textAlign: "center",
   alignItems: "center",
-  // height: "100vh",
+  height: "85vh",
 });
 
-const GoogleBox = styled("box")({
+const GoogleBox = styled("div")({
   display: "flex",
   justifyContent: "center",
-  // textAlign:"center",
   alignItems: "center",
 });
 
@@ -72,9 +70,6 @@ const Boxx = styled(Box)({
   textAlign: "start",
   margin: "17px 20px",
 });
-// const Inputt = styled(Box)(({ theme }) => ({
-//   border: `1px solid ${theme.palette.primary.main}`,
-// }));
 
 export {
   MainContainer, Dash, GoogleBox, BoxImg, Imagediv, Boxx, Btn,
