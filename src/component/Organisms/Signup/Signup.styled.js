@@ -7,7 +7,7 @@ const Container = styled(Box)({
   justifyContent: "center",
   textAlign: "center",
   alignItems: "center",
-  height: "100vh",
+  height: "85vh",
 });
 
 const AlertBox = styled(Box)({

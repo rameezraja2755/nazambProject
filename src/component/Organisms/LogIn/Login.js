@@ -23,8 +23,15 @@ import {
 import { useUserContext } from "../../../Context/UserContext";
 
 const signUpSchema = Yup.object({
-  email: Yup.string().email().required("please enter your email"),
-  password: Yup.string().min(2).max(25).required("password is required "),
+  email: Yup
+    .string("Enter your email")
+    .email("Enter a valid email")
+    .required("Email is required"),
+  password: Yup
+    .string("Enter your password")
+    .min(8, "Password should be of minimum 8 characters length")
+    .required("Password is required"),
+
 });
 
 const initialValues = {
@@ -48,7 +55,7 @@ function Login() {
   }, [user, error]);
 
   const {
-    values, errors, handleBlur, handleChange, handleSubmit,
+    values, errors, handleBlur, handleChange, handleSubmit, touched,
   } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
@@ -59,29 +66,33 @@ function Login() {
     },
   });
 
+  console.log(errors, "error");
+
   return (
     <MainContainer>
       <form onSubmit={handleSubmit}>
+
         <Input
           type="email"
           name="email"
           placeholder="Email"
           value={values.email}
           onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.email && errors.email}
+          error={touched.email && Boolean(errors.email)}
+          helperText={touched.email && errors.email}
+
         />
 
         <PasswordInput
           name="password"
           placeholder="password"
+          type="password"
           value={values.password}
           onChange={handleChange}
           onBlur={handleBlur}
-          error={errors.password && errors.password}
-          //  <InputAdornment position="end">
-          //       <DoneIcon />
-          //     </InputAdornment>
+          error={touched.password && Boolean(errors.password)}
+          helperText={touched.password && errors.password}
+
         />
         <Boxx onClick={forgotPassword(values.email)}>
           <Typography>Forgot your password?</Typography>

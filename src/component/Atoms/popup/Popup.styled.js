@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { styled, Box } from "@mui/system";
 import { Button, Typography, Card } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
@@ -5,14 +6,15 @@ import Avatar from "@mui/material/Avatar";
 // const MainBox = styled(Box)({
 //
 // });
-const SB_Card = styled(Card)({
+const MainCard = styled(Card)({
   height: " 473px",
   width: "347px",
   left: "0px",
   Top: "0px",
   borderRadius: "6px",
 });
-const SC_button = styled(Button)({
+// eslint-disable-next-line camelcase
+const ChatBtn = styled(Button)({
   height: "40px",
   width: "144px",
   left: "0px",
@@ -34,7 +36,7 @@ const InnerContent = styled("CardContent")({
   margin: "8px",
   padding: "0",
 });
-const Read = styled("Read")({
+const Read = styled("div")({
   height: "20px",
   width: "20px",
   left: "34px",
@@ -42,13 +44,13 @@ const Read = styled("Read")({
   borderRadius: "4px",
   padding: "2px 6px 2px 6px",
 });
-const Boxes = styled("Boxes")({
+const Boxes = styled(Box)({
   display: "flex",
   marginLeft: "30%",
   width: "20px",
 });
 
-const SD_avatar = styled(Avatar)({
+const Sd_Avatar = styled(Avatar)({
   backgroundColor: "white",
 });
 
@@ -115,13 +117,13 @@ const Btn = styled(Button)({
 });
 
 export {
-  SC_button,
-  SB_Card,
+  ChatBtn,
+  MainCard,
   InnerContent,
   SidebarCard,
   Read,
   Boxes,
-  SD_avatar,
+  Sd_Avatar,
   Typo,
   Boxx,
   Tygraphy,

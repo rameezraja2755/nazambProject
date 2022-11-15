@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -35,7 +36,7 @@ const initialValues = {
 function Signup() {
   const { registerUser, error } = useUserContext();
   const {
-    values, errors, handleBlur, handleChange, handleSubmit,
+    values, errors, handleChange, handleSubmit, touched,
   } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
@@ -52,42 +53,40 @@ function Signup() {
           type="FirstName"
           name="FirstName"
           id="FirstName"
-          autoComplete="off"
           placeholder="FirstName"
           value={values.FirstName}
           onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.FirstName && errors.FirstName}
+          error={touched.FirstName && Boolean(errors.FirstName)}
+          helperText={touched.FirstName && errors.FirstName}
+
         />
         <Input
           type="LastName"
           name="LastName"
           id="LastName"
-          autoComplete="off"
           placeholder="LastName"
           value={values.LastName}
           onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.LastName && errors.LastName}
+          error={touched.LastName && Boolean(errors.LastName)}
+          helperText={touched.LastName && errors.LastName}
         />
         <Input
-          type=""
-          name="mail"
+          type="email"
+          name="email"
           id="email"
-          autoComplete="off"
           placeholder="Email"
           value={values.email}
           onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.email && errors.email}
+          error={touched.email && Boolean(errors.email)}
+          helperText={touched.email && errors.email}
         />
         <PasswordInput
           name="password"
           placeholder="password"
           value={values.password}
           onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.password && errors.password}
+          error={touched.password && Boolean(errors.password)}
+          helperText={touched.password && errors.password}
         />
 
         <PasswordInput
@@ -96,22 +95,22 @@ function Signup() {
           placeholder="ConfirmPassword"
           value={values.ConfirmPassword}
           onChange={handleChange}
-          onBlur={handleBlur}
-          error={errors.ConfirmPassword && errors.ConfirmPassword}
+          error={touched.ConfirmPassword && Boolean(errors.ConfirmPassword)}
+          helperText={touched.ConfirmPassword && errors.ConfirmPassword}
+
         />
         <Button
           sx={{
             background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)",
             width: "144px",
             height: "40px",
-            marginTop: "10px",
-            marginLeft: "10px",
+            margin: "10px",
           }}
           variant="contained"
           type="submit"
         >
           {" "}
-          Sign in
+          Sign up
           {" "}
         </Button>
         <br />

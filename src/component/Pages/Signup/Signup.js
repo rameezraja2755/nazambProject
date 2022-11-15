@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../../Organisms/Navlog";
+import Navlog from "../../Organisms/Navlog";
 import SignupComp from "../../Organisms/Signup/Signup";
 
 function Signup() {
   return (
     <div>
 
-      <Navbar />
+      <Navlog />
       <SignupComp />
 
     </div>
