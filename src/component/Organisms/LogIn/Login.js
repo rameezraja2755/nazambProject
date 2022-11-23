@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import { Typography, Box } from "@mui/material";
 import { useFormik } from "formik";
 // import { signUpSchema } from "./schemas";
 import * as Yup from "yup";
-import { useNavigate } from "react-router-dom";
+
 import Alert from "@mui/material/Alert";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import Input from "../../Atoms/Input/Input";
@@ -95,7 +96,9 @@ function Login() {
 
         />
         <Boxx onClick={forgotPassword(values.email)}>
-          <Typography>Forgot your password?</Typography>
+          <Link to="/forgetpassword">
+            <Typography>Forgot your password?</Typography>
+          </Link>
           {/* <Typography>Resend activation email.</Typography> */}
         </Boxx>
         <Btn>

@@ -43,9 +43,9 @@ function HomeMainNavbar() {
             borderBottom: "4px solid #64C4BC",
             borderRadius: "1px",
           }}
-          to={location.pathname === "/Login" ? "/Signup" : location.pathname === "/Signup" && "/Login"}
+          to={location.pathname === "/Login" ? "/Signup" : "/Login"}
         >
-          {location.pathname === "/Login" ? "Signup" : location.pathname === "/Signup" && "Login"}
+          {location.pathname === "/Login" ? "Signup" : "Login"}
           {" "}
         </Link>
       </Box>

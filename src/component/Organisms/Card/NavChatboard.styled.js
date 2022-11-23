@@ -1,4 +1,4 @@
-import { Typography, Card } from "@mui/material";
+import { Typography } from "@mui/material";
 import { styled, Box } from "@mui/system";
 
 const TitleBox = styled(Box)(({ theme }) => ({
@@ -8,6 +8,7 @@ const TitleBox = styled(Box)(({ theme }) => ({
   border: `1px solid ${theme.palette.primary.main}`,
 
 }));
+
 const Typo = styled(Typography)({
   fontFamily: " Poppins",
   fontSize: "14px",
@@ -23,18 +24,19 @@ const Typo = styled(Typography)({
 
 });
 const SudoContainer = styled(Typography)({
-//   margin: "0 auto",
-  // color: #228B22;
+  color: "#64C4BC",
   textAlign: "center",
   width: "100%",
   position: "relative",
+  marginTop: "20px",
 
   "&::before": {
     content: "''",
     display: " block",
-    width: " 350px",
+    width: " 530px",
     height: "1px",
-    background: "#656D79",
+    color: "#64C4BC",
+    background: "#64C4BC",
     left: "0",
     top: "50%",
     position: "absolute",
@@ -42,61 +44,15 @@ const SudoContainer = styled(Typography)({
   "&::after": {
     content: "''",
     display: " block",
-    width: " 380px",
+    width: " 530px",
     height: "1px",
-    background: "#656D79",
+    color: "#64C4BC",
+    background: "#64C4BC",
     right: "0",
     top: "50%",
     position: "absolute",
   },
 
 });
-const ScCard = styled(Card)({
-  height: " 100px",
-  width: " 400px",
-  borderRadius: "8px",
-  padding: " 30px 35px  35px",
-  backgroundColor: "#FBCD41",
-  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-});
-const SbCard = styled(Card)({
-  height: "20px", width: " 400px", marginTop: "2px", borderRadius: "8px", padding: " 30px 35px 30px 35px", backgroundColor: "#FBCD41", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px",
 
-});
-const SdCard = styled(Card)({
-  height: "20px", width: " 400px", marginTop: "2px", borderRadius: "8px", padding: " 30px 35px 30px 35px", backgroundColor: "#FBCD41", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px",
-
-});
-
-const SccCard = styled(Card)({
-  height: " 100px",
-  width: " 400px",
-  borderRadius: "8px",
-  padding: " 30px 35px  35px",
-  backgroundColor: "#1D9BD6",
-  color: "white",
-  boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
-});
-const SbbCard = styled(Card)({
-  height: "20px", width: " 400px", marginTop: "2px", borderRadius: "8px", padding: " 30px 35px 30px 35px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
-
-});
-const SddCard = styled(Card)({
-  height: "20px", width: " 400px", marginTop: "2px", borderRadius: "8px", padding: " 30px 35px 30px 35px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
-
-});
-const Boxes = styled(Box)({
-  display: "flex",
-  justifyContent: "space-between",
-
-});
-const Date = styled("Date")({
-  display: " flex",
-  flexDirection: " row",
-  alignItems: " center",
-  padding: "8px 0px",
-  gap: "16px",
-});
-export {
-  TitleBox, Typo, SudoContainer, ScCard, SbCard, SdCard, SccCard, SbbCard, SddCard, Boxes, Date,
-};
+export { TitleBox, Typo, SudoContainer };

@@ -102,21 +102,6 @@ function Chat() {
           </SidebarCard>
         </Sidebar>
       ))}
-
-      {/* <input
-        style={{width: "80%"}}
-        placeholder="Type your reply!"
-        value={Msg}
-        onChange={(e) => setMsg(e.target.value)}
-      ></input>
-      <Button
-        variant="contained"
-        type="submit"
-        onSubmit={handleSubmit}
-        endIcon={<SendIcon />}
-      >
-        Send
-      </Button> */}
     </div>
   );
 }

@@ -5,14 +5,15 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import { Typography } from "@mui/material";
+import BlueCard from "./BlueCard";
+import Popup from "../../Atoms/popup/Popup";
+import Card from "./Card";
 
 // eslint-disable-next-line import/no-cycle
 
 // import { Container } from "@mui/system";
 import {
-  TitleBox, Typo,
-  ScCard, SdCard, SbCard, SccCard, SddCard, SbbCard, Boxes, Date, SudoContainer,
+  TitleBox, Typo, SudoContainer,
 } from "./NavChatboard.styled";
 
 export default function LabTabs() {
@@ -24,11 +25,11 @@ export default function LabTabs() {
 
   return (
     <Box sx={{
-      width: "100%",
+      width: "100%", justifyContent: "center", border: "5px solid red", alignItems: "center",
     }}
     >
-      <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+      <TabContext sx={{ display: "flex", padding: "0px" }} value={value}>
+        <Box display="flex" justifyContent="center" sx={{ borderBottom: 1, borderColor: "divider" }}>
           <TabList onChange={handleChange} aria-label="lab API tabs example">
             <Tab label="Board" value="1" />
             <Tab label="Flat mates" value="2" />
@@ -38,63 +39,18 @@ export default function LabTabs() {
         <TitleBox>
           <Typo variant="body2">Polo’s student place</Typo>
         </TitleBox>
-        {/* <Container> */}
-        <SudoContainer>July 19, 2021</SudoContainer>
-        {/* </Container> */}
-        <TabPanel value="1">
-          <ScCard>
-            <Typography variant="body2">
-              The process is usually completed by a group of people with different
-              skills and training—e.g. industrial designers, field experts
-              (prospective users), engineers(for engineering design aspects),
-              depending upon the nature and type of the product involved.
-            </Typography>
+        {/* <SudoContainer variant="body1">July 19, 2021</SudoContainer> */}
 
-          </ScCard>
-          <SbCard>
-            <Typography variant="body2">
-              Option 1 with more text that fills one line
-            </Typography>
-          </SbCard>
-
-          <SdCard>
-
-            <Typography variant="body2">
-              Option 2
-            </Typography>
-          </SdCard>
-
+        <TabPanel p={0} value="1">
+          <Card />
+          <SudoContainer variant="body1">New</SudoContainer>
+          <Box />
+          <Popup />
         </TabPanel>
         <TabPanel value="2">
-          <SccCard>
-            <Typography variant="body3">
-              The process is usually completed by a group of people with different
-              skills and training—e.g. industrial designers, field experts
-              (prospective users), engineers(for engineering design aspects),
-              depending upon the nature and type of the product involved.
-            </Typography>
-
-          </SccCard>
-          <SbbCard>
-            <Typography variant="body3">
-              Option 1 with more text that fills one line
-            </Typography>
-          </SbbCard>
-
-          <SddCard>
-
-            <Typography variant="body33">
-              Option 2
-            </Typography>
-          </SddCard>
-          <Boxes>
-            <Typography variant="secondary">Alan lee</Typography>
-            <Typography variant="secondary:main">3:16pm</Typography>
-          </Boxes>
-          <Date>
-            <Typography>July 20, 2021</Typography>
-          </Date>
+          <BlueCard />
         </TabPanel>
+
         <TabPanel value="3">Item Three</TabPanel>
       </TabContext>
     </Box>
