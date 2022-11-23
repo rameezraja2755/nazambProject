@@ -1,14 +1,15 @@
 import * as React from "react";
-
 import Typography from "@mui/material/Typography";
-import { ScCard, SbCard, SdCard } from "./Card.styled";
+import {
+  Board,
+  ScCard, SbCard, SdCard,
+} from "./Card.styled";
+
 // import Navbar from "./NavChatboard";
 
 export default function BasicCard() {
   return (
-    <>
-      {/* <Boxes> */}
-      {/* <Navbar /> */}
+    <Board>
       <ScCard>
 
         <Typography variant="body2">
@@ -31,7 +32,6 @@ export default function BasicCard() {
           Option 2
         </Typography>
       </SdCard>
-
-    </>
+    </Board>
   );
 }

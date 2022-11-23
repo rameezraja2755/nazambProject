@@ -1,14 +1,15 @@
 import React from "react";
 import { Box } from "@mui/system";
-import { Link } from "react-router-dom";
-import logo from "../../Images/mainlogo.png";
+// import { Link } from "react-router-dom";
+// import logo from "../../Images/mainlogo.png";
 import Triangle from "../../Images/colors.png";
 
 function Mainnavbar() {
   return (
     <Box>
-      <Box style={{
-        display: "flex", alignItems: "center", justifyContent: "space-around", padding: "20px", gap: "50%",
+      {/* <Box style={{
+        display: "flex", alignItems: "center",
+         justifyContent: "space-around", padding: "20px", gap: "50%",
       }}
       >
         <img src={logo} alt="logo" />
@@ -48,7 +49,7 @@ function Mainnavbar() {
             SignUp
           </Link>
         </Box>
-      </Box>
+      </Box> */}
       <Box>
         <img style={{ width: "100%" }} src={Triangle} alt="" />
       </Box>

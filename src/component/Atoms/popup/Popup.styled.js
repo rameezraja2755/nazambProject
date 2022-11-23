@@ -8,29 +8,37 @@ import Avatar from "@mui/material/Avatar";
 // });
 const MainCard = styled(Card)({
   height: " 473px",
-  width: "347px",
+  width: "378px",
   left: "0px",
   Top: "0px",
   borderRadius: "6px",
 });
+// const Chat = styled("chat")({
+//   display: "flex",
+//   flexDirection: "end",
+//   alignItems: "flex-end",
+//   marginLeft: "200px",
+// });
 // eslint-disable-next-line camelcase
 const ChatBtn = styled(Button)({
   height: "40px",
   width: "144px",
-  left: "0px",
-  top: " 8px",
+  display: "inline",
+  marginLeft: "250px",
   borderRadius: "8px",
-  backgroundColor:
-    "linear-gradient(100.22deg, #1D9BD6 -16.25%, #5AC3B8 148.05%)",
+  backgroundColor: "#1D9BD6",
+  // backgroundColor:
+  //   "linear-gradient(100.22deg, #1D9BD6 -16.25%, #5AC3B8 148.05%)",
+
 });
 const SidebarCard = styled("Card")({
   display: "flex",
   height: "80px",
-  width: "320px",
+  width: "320",
   borderRadius: "0px",
   padding: "12px",
   border: " 1px solid #E4E5E7",
-  backgroundColor: "#64C4BC",
+  backgroundColor: "#25A0D2",
 });
 const InnerContent = styled("CardContent")({
   margin: "8px",
@@ -39,10 +47,10 @@ const InnerContent = styled("CardContent")({
 const Read = styled("div")({
   height: "20px",
   width: "20px",
-  left: "34px",
+  left: "0px",
   top: "0px",
   borderRadius: "4px",
-  padding: "2px 6px 2px 6px",
+  color: "white",
 });
 const Boxes = styled(Box)({
   display: "flex",
@@ -98,9 +106,9 @@ const Boxieses = styled(Box)({
 });
 const Bxxx = styled(Box)({
   height: " 40px",
-  width: "325px",
+  width: "350px",
   marginLeft: "11px",
-  marginTop: "50px",
+  marginTop: "62px",
   borderRadius: "6px",
   backgroundColor: "#FFFFFF",
   boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
@@ -112,8 +120,14 @@ const Btn = styled(Button)({
   width: " 54px",
   color: "white",
   borderRadius: " 4px",
-  margin: "5px",
+  margin: " 7px 17px 7px 27px ",
+  // gap: "30px",
   padding: "4px 10px 4px 10px",
+});
+const PopupButton = styled("PopupButton")({
+  display: "flex",
+  justifyContent: "flex-end",
+
 });
 
 export {
@@ -131,4 +145,6 @@ export {
   Boxieses,
   Bxxx,
   Btn,
+  PopupButton,
+
 };

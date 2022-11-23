@@ -22,7 +22,7 @@ const myFlat = () => {
     <>
       <div>myFlat</div>
 
-      <Button type="submit" variant="primary" onClick={logoutUser()}> signout</Button>
+      <Button type="submit" variant="primary" onClick={() => logoutUser()}> signout</Button>
     </>
   );
 };

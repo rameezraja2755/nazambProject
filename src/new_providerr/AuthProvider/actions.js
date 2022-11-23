@@ -110,7 +110,7 @@ const useActions = (dispatch) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
-        // console.log("google pop-up token", token);
+        console.log("google pop-up token", token);
         const res = result;
         // setUser(res.user);
         dispatch({
