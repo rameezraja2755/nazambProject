@@ -24,7 +24,7 @@ function HomeNavbar() {
           color: "#1D9BD6",
           borderBottom: "5px solid #1D9BD6",
         }}
-        to="/Login"
+        to="/login"
       >
         {" "}
         Login

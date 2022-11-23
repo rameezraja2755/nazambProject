@@ -9,6 +9,7 @@ import Alert from "@mui/material/Alert";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import Input from "../../Atoms/Input/Input";
 import img from "../../Images/google.png";
+import { useAuth } from "../../../new_providerr/AuthProvider";
 
 import {
   MainContainer,
@@ -20,7 +21,8 @@ import {
   Btn,
   // Input,
 } from "./Login.styled";
-import { useUserContext } from "../../../Context/UserContext";
+// import { signInUser, forgotPassword, gSignin} from "../../../new_providerr/AuthProvider/actions";
+// import { useUserContext } from "../../../Context/UserContext";
 
 const signUpSchema = Yup.object({
   email: Yup
@@ -41,16 +43,24 @@ const initialValues = {
 
 function Login() {
   const {
-    signInUser, user, error, gSignin, forgotPassword,
-  } = useUserContext();
+    user, error,
+    signInUser, authMessage,
+    // forgotPassword,
+    gSignin,
+  } = useAuth();
+  // const {
+  //   signInUser, user, error, forgotPassword,
+  // } = useUserContext();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (user) {
-      navigate("/");
-      console.log("navigatee", user, error);
+      navigate("/myFlat");
+      // console.log("navigatee", user, error);
     } else if (error) {
-      <Alert severity="error">This is an error alert — check it out!</Alert>;
+      <Alert severity="error">
+        Error detected!
+      </Alert>;
     }
   }, [user, error]);
 
@@ -62,11 +72,11 @@ function Login() {
     onSubmit: () => {
       signInUser(values.email, values.password);
 
-      console.log("login page user ", user);
+      // console.log("login page user n amsg ", user, authMessage);
     },
   });
 
-  console.log(errors, "error");
+  // console.log("error in login page line 73");
 
   return (
     <MainContainer>
@@ -94,7 +104,7 @@ function Login() {
           helperText={touched.password && errors.password}
 
         />
-        <Boxx onClick={forgotPassword(values.email)}>
+        <Boxx>
           <Typography>Forgot your password?</Typography>
           {/* <Typography>Resend activation email.</Typography> */}
         </Boxx>
@@ -118,11 +128,12 @@ function Login() {
           <Dash>or</Dash>
         </Box>
         <GoogleBox>
+
           <Imagediv>
-            <BoxImg src={img} onClick={gSignin} />
+            <BoxImg src={img} />
           </Imagediv>
 
-          <Box>
+          <Box onClick={() => gSignin(values.email)}>
             <a>Sign in with Google</a>
           </Box>
         </GoogleBox>

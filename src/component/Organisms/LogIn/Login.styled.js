@@ -34,7 +34,7 @@ const Btn = styled("span")({
   marginLeft: "150px",
 });
 
-const MainContainer = styled("div")({
+const MainContainer = styled(Box)({
   width: "100%",
   display: "flex",
   flexDirection: "column",
@@ -44,7 +44,7 @@ const MainContainer = styled("div")({
   height: "85vh",
 });
 
-const GoogleBox = styled("div")({
+const GoogleBox = styled(Box)({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",

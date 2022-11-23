@@ -31,10 +31,10 @@ function Mainnavbar() {
               textDecoration: "none",
               color: "#1D9BD6",
             }}
-            to="/how is works"
+            to="/login"
           >
             {" "}
-            How it Works
+            SignIn
             {" "}
           </Link>
 
@@ -43,11 +43,9 @@ function Mainnavbar() {
               textDecoration: "none",
               color: "#1D9BD6",
             }}
-            to="/Signin"
+            to="/signup"
           >
-            {" "}
-            Sign In
-            {" "}
+            SignUp
           </Link>
         </Box>
       </Box>

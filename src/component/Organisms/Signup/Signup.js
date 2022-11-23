@@ -7,7 +7,8 @@ import Alert from "@mui/material/Alert";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import { Container, AlertBox } from "./Signup.styled";
-import { useUserContext } from "../../../Context/UserContext";
+// import { useUserContext } from "../../../Context/UserContext";
+import { useAuth } from "../../../new_providerr/AuthProvider";
 
 const signUpSchema = Yup.object({
   FirstName: Yup.string()
@@ -34,7 +35,7 @@ const initialValues = {
 };
 
 function Signup() {
-  const { registerUser, error } = useUserContext();
+  const { registerUser, error, authMessage } = useAuth();
   const {
     values, errors, handleChange, handleSubmit, touched,
   } = useFormik({
@@ -42,6 +43,7 @@ function Signup() {
     validationSchema: signUpSchema,
     onSubmit: () => {
       registerUser(values.email, values.password, values.FirstName);
+      // console.log("authmsg in signup", authMessage);
     },
   });
   // console.log(values, "values", errors);
@@ -118,7 +120,6 @@ function Signup() {
         <AlertBox>
           {error ? <Alert variant="filled" severity="error">User Already registered!</Alert> : ""}
         </AlertBox>
-
       </form>
     </Container>
   );
