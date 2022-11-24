@@ -29,12 +29,17 @@ const useActions = (dispatch) => {
           type: SIGN_IN,
           user: res,
           loading: true,
+          error: null,
+          loggedIn: true,
+          authMessage: "sign in completed!",
         });
       })
       .catch((err) => {
         dispatch({
           type: SIGN_IN,
           error: err.message,
+
+          loggedIn: false,
           authMessage: "Error: Couldn't sign in!",
         });
       });
@@ -47,10 +52,10 @@ const useActions = (dispatch) => {
       dispatch({
         type: SIGN_OUT,
       });
-    } catch (error) {
+    } catch (err) {
       dispatch({
         type: SIGN_OUT,
-        error: "Couldn't signout",
+        error: err.message,
         authMessage: "Error: Couldn't signout!",
       });
     }

@@ -50,9 +50,7 @@ function Login() {
     // forgotPassword,
     gSignin,
   } = useAuth();
-  // const {
-  //   signInUser, user, error, forgotPassword,
-  // } = useUserContext();
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -143,6 +141,14 @@ function Login() {
           </Box>
         </GoogleBox>
       </form>
+      { error ? (
+        <Alert severity="error">
+          Error detected!
+          {" "}
+          {error}
+        </Alert>
+      ) : "" }
+
     </MainContainer>
   );
 }
