@@ -9,7 +9,6 @@ import Avatar from "@mui/material/Avatar";
 const MainCard = styled(Card)({
   height: " 473px",
   width: "378px",
-  left: "0px",
   Top: "0px",
   borderRadius: "6px",
 });

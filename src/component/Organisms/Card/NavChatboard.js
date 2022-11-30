@@ -5,16 +5,27 @@ import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import BlueCard from "./BlueCard";
-import Popup from "../../Atoms/popup/Popup";
+import { Typography } from "@mui/material";
+import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
+import Button from "@mui/material/Button";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
+import * as SC from "./NavChatboard.styled";
 import Card from "./Card";
+import Popup from "../../Atoms/popup/Popup";
+import BlueCard from "./BlueCard";
+import chk from "../../Images/chk.png";
 
 // eslint-disable-next-line import/no-cycle
-
-// import { Container } from "@mui/system";
-import {
-  TitleBox, Typo, SudoContainer,
-} from "./NavChatboard.styled";
 
 export default function LabTabs() {
   const [value, setValue] = React.useState("1");
@@ -22,10 +33,22 @@ export default function LabTabs() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  function createData(Reference, Amount, Status = "", Action = "") {
+    return {
+      Reference, Amount, Status, Action,
+    };
+  }
+  const rows = [
+    createData("Deposit", "3.393$", "paid", "Cleared "),
+    createData("Feb-2022", "2.200$", "awaiting", "processed"),
+    createData("Mar-2022", "2.200$", "awaiting", "processed"),
+    createData("Apr-2022", "2.200$", true),
+    createData("May-2022", "1.100$", true),
+  ];
+  console.log(rows, "rowss");
   return (
     <Box sx={{
-      width: "100%", justifyContent: "center", border: "5px solid red", alignItems: "center",
+      width: "100%", justifyContent: "center", alignItems: "center",
     }}
     >
       <TabContext sx={{ display: "flex", padding: "0px" }} value={value}>
@@ -36,14 +59,14 @@ export default function LabTabs() {
             <Tab label="Myroom" value="3" />
           </TabList>
         </Box>
-        <TitleBox>
-          <Typo variant="body2">Polo’s student place</Typo>
-        </TitleBox>
+        <SC.TitleBox>
+          <SC.Typo variant="body2">Polo’s student place</SC.Typo>
+        </SC.TitleBox>
         {/* <SudoContainer variant="body1">July 19, 2021</SudoContainer> */}
 
         <TabPanel p={0} value="1">
           <Card />
-          <SudoContainer variant="body1">New</SudoContainer>
+          <SC.SudoContainer variant="body1">New</SC.SudoContainer>
           <Box />
           <Popup />
         </TabPanel>
@@ -51,8 +74,270 @@ export default function LabTabs() {
           <BlueCard />
         </TabPanel>
 
-        <TabPanel value="3">Item Three</TabPanel>
+        <TabPanel value="3">
+
+          <SC.MyRoom>
+            <SC.ContractPayment>
+              <SC.ContractConditions>
+                <Typography variant="h1">Contract conditions</Typography>
+                <SC.RoomBox>
+                  <SC.IconBox>
+                    <Box>
+                      <AccountBalanceIcon />
+                    </Box>
+                    <SC.Room>
+                      <Typography variant="body1">Room Nr</Typography>
+                    </SC.Room>
+                  </SC.IconBox>
+
+                  <SC.Date variant="body2">2</SC.Date>
+                </SC.RoomBox>
+                <hr color="grey" />
+                <SC.RoomBox>
+                  <SC.IconBox>
+                    <Box>
+                      <AccountBalanceIcon />
+                    </Box>
+                    <SC.Room>
+                      <Typography variant="body1">Resevation</Typography>
+                    </SC.Room>
+                  </SC.IconBox>
+                </SC.RoomBox>
+                <SC.CheckIn>
+                  <Typography variant="h3">Check-In:</Typography>
+                  <Typography variant="h3">Check-Out:</Typography>
+                </SC.CheckIn>
+                <SC.Month>
+                  <Typography variant="body2">07-Feb-2022</Typography>
+                  <Typography variant="body2">04-May-2004</Typography>
+                </SC.Month>
+                <hr color="grey" />
+                <SC.RoomBox>
+                  <SC.IconBox>
+                    <Box>
+                      <AccountBalanceIcon />
+                    </Box>
+                    <SC.Room>
+                      <Typography variant="body1">Invoice datails</Typography>
+                    </SC.Room>
+                  </SC.IconBox>
+                </SC.RoomBox>
+                <SC.CheckIn>
+                  <Typography variant="h3">Rent :</Typography>
+                  <Typography variant="body2">2.000$</Typography>
+                </SC.CheckIn>
+                <SC.Month>
+                  <Typography variant="h3">Deposit :</Typography>
+                  <Typography variant="body2">200$</Typography>
+                </SC.Month>
+                <SC.Month>
+                  <Typography variant="h3">Deposit :</Typography>
+                  <Typography variant="body2">200$</Typography>
+                </SC.Month>
+                <hr color="grey" />
+
+                <SC.RoomBox>
+                  <SC.IconBox>
+                    <Box>
+                      <AccountBalanceIcon />
+                    </Box>
+                    <SC.Room>
+                      <Typography variant="body1">Policy</Typography>
+                    </SC.Room>
+                  </SC.IconBox>
+                </SC.RoomBox>
+                <SC.CheckIn>
+                  <Typography variant="h3">Contract mode :</Typography>
+                  <Typography variant="body2">Variable</Typography>
+                </SC.CheckIn>
+                <SC.Month>
+                  <Typography variant="h3">Expenses Policy :</Typography>
+                  <Typography variant="body2">Fortnightly</Typography>
+                </SC.Month>
+                <div style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+                >
+                  <Button
+                    sx={{
+                      background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)",
+                      width: "144px",
+                      height: "40px",
+                      borderRadius: "8px",
+                      margin: "15px 110px",
+
+                    }}
+                    variant="contained"
+                    type="submit"
+                  >
+                    {" "}
+                    View Contract
+                    {" "}
+                  </Button>
+                </div>
+              </SC.ContractConditions>
+              <SC.PaymentsBox>
+                <Typography variant="h1">Payments</Typography>
+                <TableContainer component={Paper}>
+                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Reference</TableCell>
+                        <TableCell align="right">Amount</TableCell>
+                        <TableCell align="right">Status</TableCell>
+                        <TableCell align="right">Action</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {rows.map((row) => (
+                        <TableRow
+                          sx={row.Status === true && { color: "black" }}
+                          key={row.name}
+                        >
+
+                          <TableCell sx={row.Status === true && { color: "grey" }} align="left">{row.Reference}</TableCell>
+                          <TableCell sx={row.Status === true && { color: "grey" }} align="right">{row.Amount}</TableCell>
+                          <TableCell sx={{ color: `${row.Status === "paid" ? "#5AC3B8" : row.Status === "awaiting" && "orange"}` }} align="right">{row.Status}</TableCell>
+                          <TableCell
+                            // variant="processed"
+                            sx={{
+                              color: `${row.Status === "paid" ? "#5AC3B8" : row.Status === "awaiting" && "orange"}`,
+                              background: `${row.Status === "paid" ? "rgba(100, 196, 188, 0.19)" : row.Status === "awaiting" && "pink"}`,
+                              width: `${row.Status === "paid" ? "81px" : row.Status === "awaiting" && "81px"}`,
+                              margin: `${row.Status === "paid" ? "200px" : row.Status === "awaiting" && "200px"}`,
+                            }}
+                            align="right"
+                          >
+
+                            {row.Action}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+
+              </SC.PaymentsBox>
+
+            </SC.ContractPayment>
+
+            <SC.UsefulInfo>
+              <SC.InfoParent>
+                <Box>
+                  <Typography variant="h1">UsefulInfo</Typography>
+                </Box>
+                {/* <SC.Popup>
+                  <Popup />
+                </SC.Popup> */}
+              </SC.InfoParent>
+              <SC.Accordions>
+                <Accordion sx={{ position: "relative" }}>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon style={{ color: "#64C4BC" }} />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography variant="body1" sx={{ ml: "40px" }}>Check-In/check-out procedure</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <SC.Accodiv>
+                      <Box>
+                        <SC.CheckedIn>
+
+                          <SC.Img>
+                            <img src={chk} alt="img" />
+                          </SC.Img>
+                          <SC.Text>
+                            <Typography>The check-in time is from 10 AM to 8 PM</Typography>
+                            <Typography variant="h3">Check-in procedure:</Typography>
+                            <Typography variant="body2">
+                              Just give me a call 20 mins
+                              before getting to the apartment
+
+                            </Typography>
+                          </SC.Text>
+
+                        </SC.CheckedIn>
+                        <SC.CheckedIn>
+                          <SC.Img>
+                            <img src={chk} alt="img" />
+                          </SC.Img>
+                          <SC.Text>
+                            <Typography>The check-out time is before 10 AM </Typography>
+                            <Typography variant="h3">Check-out procedure:</Typography>
+                            <Typography variant="body2">
+                              Just leave your keys on your room’s desk
+
+                            </Typography>
+                          </SC.Text>
+
+                        </SC.CheckedIn>
+                      </Box>
+
+                    </SC.Accodiv>
+                  </AccordionDetails>
+
+                  <SC.Popup>
+                    <Popup />
+                  </SC.Popup>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon style={{ color: "#64C4BC" }} />}
+                    aria-controls="panel1a-content"
+                    id="panel1a-header"
+                  >
+                    <Typography variant="body1" sx={{ ml: "40px" }}>House rules</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                      malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon style={{ color: "#64C4BC" }} />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                  >
+                    <Typography variant="body1" sx={{ ml: "40px" }}>Wi-fi</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                      malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon style={{ color: "#64C4BC" }} />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                  >
+                    <Typography variant="body1" sx={{ ml: "40px" }}>Bank Info</Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>
+                    <Typography>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+                      malesuada lacus ex, sit amet blandit leo lobortis eget.
+                    </Typography>
+                  </AccordionDetails>
+                </Accordion>
+
+              </SC.Accordions>
+            </SC.UsefulInfo>
+
+          </SC.MyRoom>
+
+        </TabPanel>
+
       </TabContext>
+
     </Box>
   );
 }

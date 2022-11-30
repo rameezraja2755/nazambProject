@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import Home from "../component/Pages/Home/Home";
 import HomeMainNavbar from "../component/Organisms/Navlog";
-import Login from "../component/Pages/Login/Login";
+// import Login from "../component/Pages/Login/Login";
 // import MyFlat from "../component/Pages/MyFlat/MyFlat";
 import Protected from "../Protected";
 import Signup from "../component/Pages/Signup/Signup";
@@ -39,8 +39,9 @@ function Router() {
           exact
           element={(
             <>
-              <HomeMainNavbar />
-              <Login />
+              {/* <HomeMainNavbar /> */}
+              <ChatBoard />
+              {/* <Login /> */}
             </>
           )}
         />

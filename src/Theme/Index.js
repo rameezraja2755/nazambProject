@@ -254,9 +254,20 @@ const theme = createTheme({
   typography: {
     // Font:"Poppins",
     // Weight:"300",Size:"12px",LineHeight:"16px",
-    button: {
-      fontWeight: 600,
-    },
+    // button: {
+    //       background: "linear-gradient(to right bottom, #1D9BD6, #64C4BC)",
+    //       width: "144px",
+    //       height: "40px",
+    //     }}
+    //     variant="contained"
+    //     type="submit"
+    //   >
+    //     {" "}
+    //     Sign in
+    //     {" "}
+    //   </Button>
+    // </Btn>
+    // },
     fontFamily:
       "\"Inter\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Helvetica, Arial, sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\"",
     body1: {
@@ -321,10 +332,26 @@ const theme = createTheme({
       textAlign: "left",
       color: "white",
     },
+    processed: {
+      width: "81.18px",
+      height: "20px",
+      left: "959.82px",
+      top: " 118px",
+      background: "rgba(255, 145, 44, 0.19)",
+      borderRadius: "2px",
+      color: "#5AC3B8",
+    },
     h1: {
-      fontWeight: 700,
-      fontSize: "3.5rem",
-      lineHeight: 1.375,
+      fontFamily: " Poppins",
+      fontSize: "16px",
+      height: "22px",
+      fontWeight: "500",
+      lineHeight: " 22px",
+      letterSpacing: "0em",
+      textAlign: "left",
+      color: "#1D9BD6",
+      padding: "30px",
+
     },
     h2: {
       fontWeight: 700,
@@ -332,9 +359,14 @@ const theme = createTheme({
       lineHeight: 1.375,
     },
     h3: {
-      fontWeight: 700,
-      fontSize: "2.25rem",
-      lineHeight: 1.375,
+      fontFamily: "Poppins",
+      fontSize: "14px",
+      fontWeight: " 400",
+      lineHeight: "22px",
+      letterSpacing: " 0em",
+      textAlign: " left",
+      color: "#656D79",
+
     },
     h4: {
       fontWeight: 700,

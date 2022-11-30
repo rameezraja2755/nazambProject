@@ -75,10 +75,10 @@ const Data = [
 ];
 
 function Chat() {
-  const [Msg] = useState("");
-  useEffect(() => {
-    // show();
-  }, [Msg]);
+  // const [Msg] = useState("");
+  // useEffect(() => {
+  //   // show();
+  // }, [Msg]);
   return (
     <div className="chat">
       <Navbar />

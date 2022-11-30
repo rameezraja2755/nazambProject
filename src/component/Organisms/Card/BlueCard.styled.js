@@ -36,7 +36,7 @@ import {
 // });
 
 const SccCard = styled(Card)({
-  height: " 100px",
+  height: " 150px",
   width: " 400px",
   borderRadius: "8px",
   padding: "8px",
@@ -44,25 +44,25 @@ const SccCard = styled(Card)({
   // boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
 });
 const SbbCard = styled(Card)({
-  height: "20px", width: " 390px", marginTop: "4px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "20px", width: " 400px", marginTop: "4px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 
 });
 const SddCard = styled(Card)({
-  height: "20px", width: " 390px", marginTop: "8px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "20px", width: " 400px", marginTop: "8px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 
 });
 const SdiCard = styled(Card)({
-  height: "20px", width: " 450px", marginTop: "50px", borderRadius: "10px", padding: " 8px 12px 8px 12px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "20px", width: " 400px", marginTop: "50px", borderRadius: "10px", padding: " 8px 12px 8px 12px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 });
 const SbiCard = styled(Card)({
-  height: "40px", width: " 460px", marginTop: "8px", borderRadius: "10px", padding: " 8px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "40px", width: " 400px", marginTop: "8px", borderRadius: "10px", padding: " 8px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 });
 
 const Boxes = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
   height: "20px",
-  width: " 460px",
+  width: " 410px",
   marginTop: "6px",
 
 });
