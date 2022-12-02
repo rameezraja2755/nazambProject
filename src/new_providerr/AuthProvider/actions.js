@@ -2,7 +2,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  updateProfile,
+  // updateProfile,
   sendPasswordResetEmail,
   signInWithPopup,
 
@@ -14,7 +14,7 @@ import {
   SIGN_OUT,
   CREATE_USER,
   FORGOT_PASSWORD,
-  G_SIGN_IN,
+  // G_SIGN_IN,
 } from "../constants";
 import { auth } from "../../FirebaseConfig";
 
@@ -64,16 +64,18 @@ const useActions = (dispatch) => {
   const registerUser = async (email, password, name) => {
     // setLoading(true);
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() => updateProfile(auth.currentUser, {
-        displayName: name,
-      }))
+      // .then(() => updateProfile(auth.currentUser, {
+      //   displayName: name,
+      // }))
       .then((res) => {
         dispatch({
           type: CREATE_USER,
+          displayName: name,
           user: res,
           authMessage: "user registered!",
         // authRedirect: "/stream",
         });
+        console.log(res, "response in gstate signup");
       })
       .catch((err) => dispatch({
         type: CREATE_USER,
@@ -119,7 +121,7 @@ const useActions = (dispatch) => {
         const res = result;
         // setUser(res.user);
         dispatch({
-          type: G_SIGN_IN,
+          type: SIGN_IN,
           user: res.user,
           authMessage: "pop-up! Signin successfull!",
           // error: err.message,
@@ -127,7 +129,7 @@ const useActions = (dispatch) => {
       })
       .catch((err) => {
         dispatch({
-          type: G_SIGN_IN,
+          type: SIGN_IN,
           error: err.message,
           authMessage: "Error: Couldn't sign in via Google pop-up!",
         });

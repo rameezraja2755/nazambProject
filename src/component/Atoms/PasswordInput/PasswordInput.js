@@ -44,7 +44,7 @@ export default function InputAdornments({
             {placeholder}
           </InputLabel> */}
           <MyComponent
-            id="outlined-adornment-password"
+            // id="outlined-adornment-password"
             type={showPassword ? "text" : "password"}
             value={value}
             error={error && true}
