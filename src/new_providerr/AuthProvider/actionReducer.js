@@ -6,11 +6,14 @@ import {
   SIGN_OUT,
   FORGOT_PASSWORD,
   CREATE_USER,
-  G_SIGN_IN,
+  // G_SIGN_IN,
 } from "../constants";
 
 export const initialState = {
-  user: null,
+  userId: null,
+  userName: "",
+  phoneNo: "",
+
   // userRole: null,
   loading: false,
   error: null,
@@ -23,19 +26,9 @@ export const reducer = (state, action) => {
   case SIGN_IN:
     return {
       ...state,
-      user: action.user,
+      userId: action.user.uid,
+      userName: action.user.displayName,
       loading: action.loading,
-      error: action.error,
-      loggedIn: true,
-      authMessage: action.authMessage,
-
-    };
-
-  case G_SIGN_IN:
-    return {
-      ...state,
-      user: action.user,
-      // loading: action.loading,
       error: action.error,
       loggedIn: true,
       authMessage: action.authMessage,
@@ -45,7 +38,8 @@ export const reducer = (state, action) => {
   case SIGN_OUT:
     return {
       ...state,
-      user: null,
+      userId: null,
+      userName: "",
       loading: false,
       error: null,
       loggedIn: false,
@@ -55,17 +49,19 @@ export const reducer = (state, action) => {
   case CREATE_USER:
     return {
       ...state,
-      user: action.user,
+      userId: action.user.uid,
+      userName: action.displayName,
       loading: false,
       error: action.error,
-      loggedIn: false,
+      loggedIn: true,
       authMessage: action.authMessage,
     };
 
   case FORGOT_PASSWORD:
     return {
       ...state,
-      user: action.user,
+      userId: null,
+      userName: "",
       loading: false,
       error: action.error,
       loggedIn: false,

@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
+import { collection, setDoc } from "firebase/firestore";
+import { db } from "../../../FirebaseConfig";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import { Container, AlertBox } from "./Signup.styled";
@@ -35,15 +37,29 @@ const initialValues = {
 };
 
 function Signup() {
-  const { registerUser, error, authMessage } = useAuth();
+  const {
+    registerUser, userId, userName, error,
+  } = useAuth();
   const {
     values, errors, handleChange, handleSubmit, touched,
   } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
-    onSubmit: () => {
-      registerUser(values.email, values.password, values.FirstName);
-      // console.log("authmsg in signup", authMessage);
+    onSubmit: async () => {
+      registerUser(values.email, values.password, `${values.FirstName} ${values.LastName}`);
+      const CollectionRef = collection(db, "users", userId);
+      const payload = {
+        name: userName,
+        email: values.email,
+      };
+      await setDoc(CollectionRef, payload);
+
+      // console.log("signup user id generated", userId, CollectionRef, payload);
+      // // to add doc to existing document-setDoc
+      // const docRef = doc(db, "users", "user001");
+      // const payload = { name: values.email, email: values.password };
+      // await setDoc(docRef, payload);
+      // values = initialValues;
     },
   });
   // console.log(values, "values", errors);
@@ -109,7 +125,7 @@ function Signup() {
             margin: "10px",
           }}
           variant="contained"
-          type="submit"
+          type="submianbreen.shakrullah@gmail.comt"
         >
           {" "}
           Sign up
@@ -118,7 +134,7 @@ function Signup() {
         <br />
         <br />
         <AlertBox>
-          {error ? <Alert variant="filled" severity="error">User Already registered!</Alert> : ""}
+          {error ? <Alert variant="filled" severity="error">username/id already in user registered!</Alert> : ""}
         </AlertBox>
       </form>
     </Container>

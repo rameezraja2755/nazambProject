@@ -44,7 +44,9 @@ const initialValues = {
 
 function Login() {
   const {
-    user, error,
+    // loggedIn,
+    userId,
+    error,
     signInUser,
     // authMessage,
     // forgotPassword,
@@ -54,15 +56,15 @@ function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user) {
-      navigate("/myFlat");
-      // console.log("navigatee", user, error);
+    if (userId) {
+      navigate("/chat");
+      console.log("navigatee from login to chat", userId, error);
     } else if (error) {
       <Alert severity="error">
         Error detected!
       </Alert>;
     }
-  }, [user, error]);
+  }, [userId, error]);
 
   const {
     values, errors, handleBlur, handleChange, handleSubmit, touched,
@@ -72,7 +74,7 @@ function Login() {
     onSubmit: () => {
       signInUser(values.email, values.password);
 
-      // console.log("login page user n amsg ", user, authMessage);
+      console.log("error n userId ----login pge", error, userId);
     },
   });
 
@@ -131,6 +133,7 @@ function Login() {
           <Dash>or</Dash>
         </Box>
         <GoogleBox>
+          gSignin
 
           <Imagediv>
             <BoxImg src={img} />
