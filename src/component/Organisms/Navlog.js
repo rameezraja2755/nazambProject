@@ -1,11 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Box } from "@mui/system";
 import logo from "../Images/logo.png";
 import Boxes from "./Navlog.styled";
 
 function HomeMainNavbar() {
-  // const location = useLocation();
+  const location = useLocation();
 
   return (
 
@@ -29,10 +29,10 @@ function HomeMainNavbar() {
             textDecoration: "none",
             color: "#1D9BD6",
           }}
-          to="/Login"
+          to="/how is works"
         >
           {" "}
-          Login
+          How it Works
           {" "}
         </Link>
 
@@ -43,11 +43,9 @@ function HomeMainNavbar() {
             borderBottom: "4px solid #64C4BC",
             borderRadius: "1px",
           }}
-          to="/Signup"
-          // to={location.pathname === "/Signup" ? "/Login" : "/Signup"}
+          to={location.pathname === "/Login" ? "/Signup" : "/Login"}
         >
-          Signup
-          {/* {location.pathname === "Signup" ? "Login" : "Signup"} */}
+          {location.pathname === "/Login" ? "Signup" : "Login"}
           {" "}
         </Link>
       </Box>

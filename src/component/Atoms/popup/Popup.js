@@ -5,6 +5,7 @@ import Popover from "@mui/material/Popover";
 import Typography from "@mui/material/Typography";
 import MessageIcon from "@mui/icons-material/Message";
 import CloseIcon from "@mui/icons-material/Close";
+// import { margin } from "@mui/system";
 import * as SC from "./Popup.styled";
 
 export default function BasicPopover() {
@@ -23,7 +24,7 @@ export default function BasicPopover() {
 
   return (
     <div>
-      {/* <SC.Chat> */}
+
       <SC.PopupButton>
         <SC.ChatBtn
           aria-describedby={id}
@@ -32,7 +33,7 @@ export default function BasicPopover() {
         >
           <MessageIcon />
         </SC.ChatBtn>
-        {/* </SC.Chat>/ */}
+
         <Popover
           id={id}
           open={open}
@@ -86,9 +87,18 @@ export default function BasicPopover() {
 
             <SC.Bxxx>
               <SC.Tygraphy variant="body2">
-                ...send an order screen  june 24
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="  ...send an order screen  june 24"
+                  style={{
+                    width: "243px", height: "20px", border: "none", margin: "10px",
+
+                  }}
+
+                />
                 {" "}
-                <SC.Btn>Send</SC.Btn>
+                <SC.Btn> Send </SC.Btn>
               </SC.Tygraphy>
             </SC.Bxxx>
           </SC.MainCard>

@@ -36,6 +36,38 @@ const SudoContainer = styled(Typography)({
 
 });
 
+const Date = styled(Typography)({
+  color: "grey",
+  textAlign: "center",
+  width: "100%",
+  position: "relative",
+  marginTop: "20px",
+
+  "&::before": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    left: "0",
+    top: "50%",
+    position: "absolute",
+  },
+  "&::after": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    right: "0",
+    top: "50%",
+    position: "absolute",
+  },
+
+});
+
 const SccCard = styled(Card)({
   height: " 150px",
   width: " 400px",
@@ -75,14 +107,14 @@ const BlueBoxes = styled(Box)({
   marginTop: "6px",
 
 });
-const Date = styled("Date")({
-  display: " flex",
-  flexDirection: " row",
-  justifyContent: "flex-start",
-  alignItems: " center",
-  padding: "35px 4px",
-  gap: "16px",
-});
+// const Date = styled("Date")({
+//   display: " flex",
+//   flexDirection: " row",
+//   justifyContent: "flex-start",
+//   alignItems: " center",
+//   padding: "35px 4px",
+//   gap: "16px",
+// });
 const InputCard = styled("div")({
 
   width: " 500px",
@@ -209,6 +241,9 @@ const FullFlatmates = styled("div")({
   padding: "0px",
 
 });
+const IconBoxx = styled(Box)({
+  width: "2rem", display: "flex", alignItems: "center",
+});
 
 export
 {
@@ -217,6 +252,6 @@ export
   Flatmates, User, Clt, Input, Sidebar,
   SidebarCard, Rightbar, Flatematebox, FullFlatmates,
   Avter, BlueBoxes, Icon, InputCard, SudoContainer,
-  InnerContent,
+  InnerContent, IconBoxx,
 
 };

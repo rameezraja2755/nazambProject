@@ -42,9 +42,6 @@ export default function BasicCard() {
           </SC.Boxes>
 
           <SC.Date variant="secondary">July 20, 2021</SC.Date>
-          {/* <SC.Date>
-            <Typography variant="secondary">July 20, 2021</Typography>
-          </SC.Date> */}
 
           <SC.SudoContainer variant="body1">New</SC.SudoContainer>
 
@@ -143,9 +140,12 @@ export default function BasicCard() {
         )
         }
 
-        <div style={{ width: "2rem", display: "flex", alignItems: "center" }} onClick={() => setIsOpen(!isOpen)}>
-          <KeyboardArrowRightIcon style={{ color: "#64C4BC" }} />
-        </div>
+        <SC.IconBoxx onClick={() => setIsOpen(!isOpen)}>
+          {
+            isOpen
+              ? <KeyboardArrowRightIcon style={{ color: "#64C4BC" }} /> : "<"
+          }
+        </SC.IconBoxx>
       </div>
     </SC.FullFlatmates>
   );

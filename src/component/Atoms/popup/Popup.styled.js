@@ -119,8 +119,7 @@ const Btn = styled(Button)({
   width: " 54px",
   color: "white",
   borderRadius: " 4px",
-  margin: " 7px 17px 7px 27px ",
-  // gap: "30px",
+  margin: " 7px 17px 7px 7px ",
   padding: "4px 10px 4px 10px",
 });
 const PopupButton = styled("PopupButton")({
