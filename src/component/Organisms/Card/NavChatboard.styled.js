@@ -54,6 +54,37 @@ const SudoContainer = styled(Typography)({
   },
 
 });
+const Date = styled(Typography)({
+  color: "grey",
+  textAlign: "center",
+  width: "100%",
+  position: "relative",
+  marginTop: "20px",
+
+  "&::before": {
+    content: "''",
+    display: " block",
+    width: " 530px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    left: "0",
+    top: "50%",
+    position: "absolute",
+  },
+  "&::after": {
+    content: "''",
+    display: " block",
+    width: " 530px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    right: "0",
+    top: "50%",
+    position: "absolute",
+  },
+
+});
 
 const MyRoom = styled("div")({
   backgroundColor: "#F7FAFD",
@@ -76,10 +107,6 @@ const Room = styled("div")({
 const RoomBox = styled("div")({
   display: "flex",
   justifyContent: "space-between",
-
-});
-const Date = styled(Typography)({
-  marginRight: "100px",
 
 });
 const IconBox = styled("div")({

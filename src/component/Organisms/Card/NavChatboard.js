@@ -19,6 +19,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+// import sx from "@mui/system/sx";
 import * as SC from "./NavChatboard.styled";
 import Card from "./Card";
 import Popup from "../../Atoms/popup/Popup";
@@ -39,9 +40,9 @@ export default function LabTabs() {
     };
   }
   const rows = [
-    createData("Deposit", "3.393$", "paid", "Cleared "),
-    createData("Feb-2022", "2.200$", "awaiting", "processed"),
-    createData("Mar-2022", "2.200$", "awaiting", "processed"),
+    createData("Deposit", "3.393$", "Paid", "Cleared "),
+    createData("Feb-2022", "2.200$", "Awaiting", "Processed"),
+    createData("Mar-2022", "2.200$", "Awaiting", "Processed"),
     createData("Apr-2022", "2.200$", true),
     createData("May-2022", "1.100$", true),
   ];
@@ -180,13 +181,13 @@ export default function LabTabs() {
               <SC.PaymentsBox>
                 <Typography variant="h1">Payments</Typography>
                 <TableContainer component={Paper}>
-                  <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                  <Table sx={{ minWidth: 650, Height: 50 }} aria-label="simple table">
                     <TableHead>
-                      <TableRow>
-                        <TableCell>Reference</TableCell>
-                        <TableCell align="right">Amount</TableCell>
-                        <TableCell align="right">Status</TableCell>
-                        <TableCell align="right">Action</TableCell>
+                      <TableRow style={{ minHeight: "50px" }}>
+                        <TableCell style={{ color: "#1D9BD6", backgroundColor: "white", height: "5px" }} align="center">Reference</TableCell>
+                        <TableCell style={{ color: "#1D9BD6", backgroundColor: "white", height: "5px" }} align="center">Amount</TableCell>
+                        <TableCell style={{ color: "#1D9BD6", backgroundColor: "white", height: "5px" }} align="center">Status</TableCell>
+                        <TableCell style={{ color: "#1D9BD6", backgroundColor: "white", height: "5px" }} align="center">Action</TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>
@@ -196,18 +197,19 @@ export default function LabTabs() {
                           key={row.name}
                         >
 
-                          <TableCell sx={row.Status === true && { color: "grey" }} align="left">{row.Reference}</TableCell>
-                          <TableCell sx={row.Status === true && { color: "grey" }} align="right">{row.Amount}</TableCell>
-                          <TableCell sx={{ color: `${row.Status === "paid" ? "#5AC3B8" : row.Status === "awaiting" && "orange"}` }} align="right">{row.Status}</TableCell>
+                          <TableCell sx={row.Status === true && { color: "grey" }} align="center" style={{ height: "5px" }}>{row.Reference}</TableCell>
+                          <TableCell sx={row.Status === true && { color: "grey" }} align="center" style={{ height: "5px" }}>{row.Amount}</TableCell>
+                          <TableCell sx={{ color: `${row.Status === "Paid" ? "#5AC3B8" : row.Status === "Awaiting" && "#FF912C"}` }} align="center" style={{ height: "10px" }}>{row.Status}</TableCell>
                           <TableCell
                             // variant="processed"
                             sx={{
-                              color: `${row.Status === "paid" ? "#5AC3B8" : row.Status === "awaiting" && "orange"}`,
-                              background: `${row.Status === "paid" ? "rgba(100, 196, 188, 0.19)" : row.Status === "awaiting" && "pink"}`,
-                              width: `${row.Status === "paid" ? "81px" : row.Status === "awaiting" && "81px"}`,
-                              margin: `${row.Status === "paid" ? "200px" : row.Status === "awaiting" && "200px"}`,
+                              color: `${row.Status === "Paid" ? "#5AC3B8" : row.Status === "Awaiting" && "#FF912C"}`,
+                              background: `${row.Status === "Paid" ? "rgba(100, 196, 188, 0.19)" : row.Status === "Awaiting" && "pink"}`,
+                              width: `${row.Status === "Paid" ? "81px" : row.Status === "Awaiting" && "81px"}`,
+                              border: `${row.Status === "Paid" ? "5px solid white" : row.Status === "Awaiting" && "5px solid white"}`,
+                              borderRadius: `${row.Status === "paid" ? "15px" : row.Status === "Awaiting" && "15px"}`,
                             }}
-                            align="right"
+                            align="center"
                           >
 
                             {row.Action}

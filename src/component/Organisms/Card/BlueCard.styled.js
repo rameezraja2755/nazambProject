@@ -1,39 +1,40 @@
 import { styled } from "@mui/system";
-import {
-  Card, Box, Button,
+import
+{
+  Card, Box, Button, Typography,
 } from "@mui/material";
 
-// const SudoContainer = styled(Typography)({
-//   color: "#64C4BC",
-//   textAlign: "center",
-//   width: "100%",
-//   position: "relative",
-//   marginTop: "20px",
+const SudoContainer = styled(Typography)({
+  color: "#64C4BC",
+  textAlign: "center",
+  width: "100%",
+  position: "relative",
+  marginTop: "20px",
 
-//   "&::before": {
-//     content: "''",
-//     display: " block",
-//     width: " 400px",
-//     height: "1px",
-//     color: "#64C4BC",
-//     background: "#64C4BC",
-//     left: "0",
-//     top: "50%",
-//     position: "absolute",
-//   },
-//   "&::after": {
-//     content: "''",
-//     display: " block",
-//     width: " 400px",
-//     height: "1px",
-//     color: "#64C4BC",
-//     background: "#64C4BC",
-//     right: "0",
-//     top: "50%",
-//     position: "absolute",
-//   },
+  "&::before": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "#64C4BC",
+    background: "#64C4BC",
+    left: "0",
+    top: "50%",
+    position: "absolute",
+  },
+  "&::after": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "#64C4BC",
+    background: "#64C4BC",
+    right: "0",
+    top: "50%",
+    position: "absolute",
+  },
 
-// });
+});
 
 const SccCard = styled(Card)({
   height: " 150px",
@@ -209,12 +210,13 @@ const FullFlatmates = styled("div")({
 
 });
 
-export {
+export
+{
   SccCard, SbbCard, SddCard, Boxes, Date,
   SdiCard, SbiCard, IconBox, Btn, mates,
   Flatmates, User, Clt, Input, Sidebar,
   SidebarCard, Rightbar, Flatematebox, FullFlatmates,
-  Avter, BlueBoxes, Icon, InputCard,
+  Avter, BlueBoxes, Icon, InputCard, SudoContainer,
   InnerContent,
 
 };

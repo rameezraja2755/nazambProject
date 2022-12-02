@@ -3,12 +3,14 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import Avatar from "@mui/material/Avatar";
 import Imb from "../../Images/boy.jpg";
 import Imc from "../../Images/g1.png";
 import * as SC from "./BlueCard.styled";
 
 export default function BasicCard() {
+  const [isOpen, setIsOpen] = React.useState(true);
   return (
     <SC.FullFlatmates>
       <SC.Flatmates>
@@ -38,11 +40,13 @@ export default function BasicCard() {
             <Typography variant="secondary">Alan lee</Typography>
             <Typography variant="secondary:main">3:16pm</Typography>
           </SC.Boxes>
-          <SC.Date>
-            <Typography variant="secondary">July 20, 2021</Typography>
-          </SC.Date>
 
-          {/* <SC.SudoContainer variant="body1">New</SC.SudoContainer> */}
+          <SC.Date variant="secondary">July 20, 2021</SC.Date>
+          {/* <SC.Date>
+            <Typography variant="secondary">July 20, 2021</Typography>
+          </SC.Date> */}
+
+          <SC.SudoContainer variant="body1">New</SC.SudoContainer>
 
           <SC.SbbCard>
             <Typography variant="body3">
@@ -94,44 +98,55 @@ export default function BasicCard() {
           </SC.InputCard>
         </SC.Clt>
       </SC.Flatmates>
-      <SC.Rightbar>
-        <SC.Sidebar>
-          <SC.Flatematebox>
-            <Typography variant="h3">FLATMATES</Typography>
-          </SC.Flatematebox>
-          <SC.SidebarCard>
-            <SC.Avter>
-              <Avatar src={Imb} />
-            </SC.Avter>
-            <SC.InnerContent>
-              <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
-                Alan Lee
-              </Typography>
-              <Typography sx={{ fontSize: 13 }} color="text.secondary">
-                Sao Paulo, Brazil
-              </Typography>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        {
+          isOpen
+        && (
+          <SC.Rightbar>
+            <SC.Sidebar>
+              <SC.Flatematebox>
+                <Typography variant="h3">FLATMATES</Typography>
+              </SC.Flatematebox>
+              <SC.SidebarCard>
+                <SC.Avter>
+                  <Avatar src={Imb} />
+                </SC.Avter>
+                <SC.InnerContent>
+                  <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
+                    Alan Lee
+                  </Typography>
+                  <Typography sx={{ fontSize: 13 }} color="text.secondary">
+                    Sao Paulo, Brazil
+                  </Typography>
 
-            </SC.InnerContent>
+                </SC.InnerContent>
 
-          </SC.SidebarCard>
-          <SC.SidebarCard>
-            <SC.Avter>
-              <Avatar src={Imc} />
-            </SC.Avter>
-            <SC.InnerContent>
-              <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
-                Alan Lee
-              </Typography>
-              <Typography sx={{ fontSize: 13 }} color="text.secondary">
-                Sao Paulo, Brazil
-              </Typography>
+              </SC.SidebarCard>
+              <SC.SidebarCard>
+                <SC.Avter>
+                  <Avatar src={Imc} />
+                </SC.Avter>
+                <SC.InnerContent>
+                  <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
+                    Alan Lee
+                  </Typography>
+                  <Typography sx={{ fontSize: 13 }} color="text.secondary">
+                    Sao Paulo, Brazil
+                  </Typography>
 
-            </SC.InnerContent>
+                </SC.InnerContent>
 
-          </SC.SidebarCard>
-        </SC.Sidebar>
+              </SC.SidebarCard>
+            </SC.Sidebar>
 
-      </SC.Rightbar>
+          </SC.Rightbar>
+        )
+        }
+
+        <div style={{ width: "2rem", display: "flex", alignItems: "center" }} onClick={() => setIsOpen(!isOpen)}>
+          <KeyboardArrowRightIcon style={{ color: "#64C4BC" }} />
+        </div>
+      </div>
     </SC.FullFlatmates>
   );
 }
