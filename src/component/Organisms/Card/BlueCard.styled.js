@@ -1,42 +1,75 @@
 import { styled } from "@mui/system";
-import {
-  Card, Box, Button,
+import
+{
+  Card, Box, Button, Typography,
 } from "@mui/material";
 
-// const SudoContainer = styled(Typography)({
-//   color: "#64C4BC",
-//   textAlign: "center",
-//   width: "100%",
-//   position: "relative",
-//   marginTop: "20px",
+const SudoContainer = styled(Typography)({
+  color: "#64C4BC",
+  textAlign: "center",
+  width: "100%",
+  position: "relative",
+  marginTop: "20px",
 
-//   "&::before": {
-//     content: "''",
-//     display: " block",
-//     width: " 400px",
-//     height: "1px",
-//     color: "#64C4BC",
-//     background: "#64C4BC",
-//     left: "0",
-//     top: "50%",
-//     position: "absolute",
-//   },
-//   "&::after": {
-//     content: "''",
-//     display: " block",
-//     width: " 400px",
-//     height: "1px",
-//     color: "#64C4BC",
-//     background: "#64C4BC",
-//     right: "0",
-//     top: "50%",
-//     position: "absolute",
-//   },
+  "&::before": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "#64C4BC",
+    background: "#64C4BC",
+    left: "0",
+    top: "50%",
+    position: "absolute",
+  },
+  "&::after": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "#64C4BC",
+    background: "#64C4BC",
+    right: "0",
+    top: "50%",
+    position: "absolute",
+  },
 
-// });
+});
+
+const Date = styled(Typography)({
+  color: "grey",
+  textAlign: "center",
+  width: "100%",
+  position: "relative",
+  marginTop: "20px",
+
+  "&::before": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    left: "0",
+    top: "50%",
+    position: "absolute",
+  },
+  "&::after": {
+    content: "''",
+    display: " block",
+    width: " 400px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    right: "0",
+    top: "50%",
+    position: "absolute",
+  },
+
+});
 
 const SccCard = styled(Card)({
-  height: " 100px",
+  height: " 150px",
   width: " 400px",
   borderRadius: "8px",
   padding: "8px",
@@ -44,25 +77,25 @@ const SccCard = styled(Card)({
   // boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
 });
 const SbbCard = styled(Card)({
-  height: "20px", width: " 390px", marginTop: "4px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "20px", width: " 400px", marginTop: "4px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 
 });
 const SddCard = styled(Card)({
-  height: "20px", width: " 390px", marginTop: "8px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "20px", width: " 400px", marginTop: "8px", borderRadius: "8px", padding: " 8px 12px 8px 12px", backgroundColor: "#1D9BD6", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 
 });
 const SdiCard = styled(Card)({
-  height: "20px", width: " 450px", marginTop: "50px", borderRadius: "10px", padding: " 8px 12px 8px 12px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "20px", width: " 400px", marginTop: "50px", borderRadius: "10px", padding: " 8px 12px 8px 12px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 });
 const SbiCard = styled(Card)({
-  height: "40px", width: " 460px", marginTop: "8px", borderRadius: "10px", padding: " 8px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
+  height: "40px", width: " 400px", marginTop: "8px", borderRadius: "10px", padding: " 8px", boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", gap: "10px", color: "white",
 });
 
 const Boxes = styled(Box)({
   display: "flex",
   justifyContent: "space-between",
   height: "20px",
-  width: " 460px",
+  width: " 410px",
   marginTop: "6px",
 
 });
@@ -74,14 +107,14 @@ const BlueBoxes = styled(Box)({
   marginTop: "6px",
 
 });
-const Date = styled("Date")({
-  display: " flex",
-  flexDirection: " row",
-  justifyContent: "flex-start",
-  alignItems: " center",
-  padding: "35px 4px",
-  gap: "16px",
-});
+// const Date = styled("Date")({
+//   display: " flex",
+//   flexDirection: " row",
+//   justifyContent: "flex-start",
+//   alignItems: " center",
+//   padding: "35px 4px",
+//   gap: "16px",
+// });
 const InputCard = styled("div")({
 
   width: " 500px",
@@ -208,13 +241,17 @@ const FullFlatmates = styled("div")({
   padding: "0px",
 
 });
+const IconBoxx = styled(Box)({
+  width: "2rem", display: "flex", alignItems: "center",
+});
 
-export {
+export
+{
   SccCard, SbbCard, SddCard, Boxes, Date,
   SdiCard, SbiCard, IconBox, Btn, mates,
   Flatmates, User, Clt, Input, Sidebar,
   SidebarCard, Rightbar, Flatematebox, FullFlatmates,
-  Avter, BlueBoxes, Icon, InputCard,
-  InnerContent,
+  Avter, BlueBoxes, Icon, InputCard, SudoContainer,
+  InnerContent, IconBoxx,
 
 };

@@ -54,5 +54,160 @@ const SudoContainer = styled(Typography)({
   },
 
 });
+const Date = styled(Typography)({
+  color: "grey",
+  textAlign: "center",
+  width: "100%",
+  position: "relative",
+  marginTop: "20px",
 
-export { TitleBox, Typo, SudoContainer };
+  "&::before": {
+    content: "''",
+    display: " block",
+    width: " 530px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    left: "0",
+    top: "50%",
+    position: "absolute",
+  },
+  "&::after": {
+    content: "''",
+    display: " block",
+    width: " 530px",
+    height: "1px",
+    color: "grey",
+    background: "grey",
+    right: "0",
+    top: "50%",
+    position: "absolute",
+  },
+
+});
+
+const MyRoom = styled("div")({
+  backgroundColor: "#F7FAFD",
+  height: "auto",
+  width: "100%",
+
+});
+const ContractConditions = styled("div")({
+
+  height: "500px",
+  width: " 352px",
+  marginLeft: "35px",
+  marginTop: " 50px",
+  borderRadius: "12px",
+  background: "#FFFFFF",
+});
+const Room = styled("div")({
+
+});
+const RoomBox = styled("div")({
+  display: "flex",
+  justifyContent: "space-between",
+
+});
+const IconBox = styled("div")({
+  display: "flex",
+  gap: "12px",
+  marginLeft: "15px",
+
+});
+const CheckIn = styled("div")({
+  display: "flex",
+  justifyContent: "space-around",
+
+});
+const Month = styled("div")({
+  display: "flex",
+  justifyContent: "space-around",
+});
+const ContractPayment = styled("div")({
+  display: "flex",
+  marginTop: "50px",
+  gap: "40px",
+});
+const PaymentsBox = styled("div")({
+  height: "500px",
+  width: " 653px",
+  left: "415px",
+  top: "27px",
+  borderRadius: "12px",
+  textAlign: "center",
+  justifyContent: "space-around",
+  alignItems: "center",
+  background: "#FFFFFF",
+  marginTop: "50px",
+
+});
+const PaymentsParent = styled("div")({
+  display: "flex",
+  justifyContent: "space-around",
+  textAlign: "center",
+  alignItems: "center",
+
+});
+const Reference = styled("div")({
+  // textAlign: "center",
+  // alignItems: "center",
+  // justifyContent: "center",
+
+});
+const Content = styled("div")({
+  paddingLeft: "40px",
+  lineHeight: "30px",
+
+});
+const UsefulInfo = styled("div")({
+  height: "384px",
+  width: "1037px",
+  left: "35px",
+  top: "464px",
+  borderRadius: "12px",
+  margin: "50px",
+  background: "#FFFFFF",
+
+});
+const CheckedIn = styled("div")({
+  display: "flex",
+  marginTop: "20px",
+});
+const Text = styled("div")({
+
+});
+const Img = styled("div")({
+  justifyContent: "center",
+  alignItems: "center",
+  margin: "12px",
+
+});
+const Typoo = styled("div")({
+  margin: "30px",
+});
+const Accordions = styled("div")({
+  position: "relative",
+
+});
+const InfoParent = styled("div")({
+  display: "flex",
+
+});
+const Popup = styled("div")({
+  // float: "right",
+  position: "absolute",
+  bottom: "0",
+  right: "5px",
+
+});
+const Accodiv = styled("div")({
+  display: "flex",
+
+});
+export {
+  TitleBox, Typo, SudoContainer, MyRoom, ContractConditions, Room,
+  RoomBox, Date, IconBox, CheckIn, Month, ContractPayment, Reference,
+  PaymentsBox, PaymentsParent, Content, UsefulInfo, Popup,
+  CheckedIn, Text, Img, Typoo, Accordions, InfoParent, Accodiv,
+};
