@@ -2,7 +2,7 @@
 import {
   createContext,
   useContext,
-  useEffect, useReducer, useMemo,
+  useEffect, useReducer, useMemo, useState,
 } from "react";
 
 // import PropTypes from "prop-types";
@@ -16,11 +16,13 @@ import useActions from "./actions";
 import { initialState, reducer } from "./actionReducer";
 
 import { auth } from "../../FirebaseConfig";
+import { SIGN_IN } from "../constants";
 
 export const AuthContext = createContext();
 
 function AuthProvider(props) {
   const { children } = props;
+  const [isloading, setIsloading] = useState(true);
 
   const [state, dispatch] = useReducer(reducer, initialState);
   const actions = useActions(dispatch);
@@ -28,6 +30,15 @@ function AuthProvider(props) {
   useEffect(() => {
     state.loading = true;
     const unsubscribe = onAuthStateChanged(auth, (res) => {
+      dispatch({
+        type: SIGN_IN,
+        user: res,
+        loading: true,
+        error: null,
+        loggedIn: true,
+        authMessage: "sign in completed!",
+      });
+      console.log("user in context index page :@ ", res);
       if (res) {
         state.user = res;
       } else {
@@ -35,9 +46,12 @@ function AuthProvider(props) {
         state.error = "";
         state.loading = false;
       }
+      setIsloading(false);
     });
     return unsubscribe;
   }, []);
+
+  console.log(state, "this is state");
 
   const returnValues = {
     ...state,
@@ -49,6 +63,10 @@ function AuthProvider(props) {
   };
 
   const authContextValue = useMemo(() => returnValues, [returnValues]);
+
+  if (isloading) {
+    return <div>loading.....</div>;
+  }
   return (
     <AuthContext.Provider value={authContextValue}>
       {children}

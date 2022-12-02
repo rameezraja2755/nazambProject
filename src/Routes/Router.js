@@ -7,29 +7,35 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "../component/Pages/Home/Home";
-import HomeMainNavbar from "../component/Organisms/Navlog";
-// import Login from "../component/Pages/Login/Login";
+import Login from "../component/Pages/Login/Login";
+import MainNavbar from "../component/Organisms/mainNavbar";
 // import MyFlat from "../component/Pages/MyFlat/MyFlat";
 import Protected from "../Protected";
 import Signup from "../component/Pages/Signup/Signup";
 import ForgetPassword from "../component/Organisms/ForgetPassword";
 // import Chat from "../component/Organisms/SideBarChat/Chat";
-import { useUserContext } from "../Context/UserContext";
+// import { useUserContext } from "../Context/UserContext";
 import ChatBoard from "../component/Pages/Chat/ChatBoard";
+import { useAuth } from "../new_providerr/AuthProvider/index";
 
 function Router() {
   // console.log('userDetail', AuthContext, userDetailContext)
-  const { user } = useUserContext();
-  return (
-    <BrowserRouter>
+  const {
+    // loggedIn,
+    userId, userName,
+  } = useAuth();
 
+  console.log("userId, user name -router", userId, userName);
+  return (
+
+    <BrowserRouter>
       <Routes>
         <Route
           path="/"
           exact
           element={(
             <>
-              <HomeMainNavbar />
+              <MainNavbar />
               <Home />
             </>
           )}
@@ -39,9 +45,8 @@ function Router() {
           exact
           element={(
             <>
-              {/* <HomeMainNavbar /> */}
-              <ChatBoard />
-              {/* <Login /> */}
+              <MainNavbar />
+              <Login />
             </>
           )}
         />
@@ -50,7 +55,7 @@ function Router() {
           path="/signup"
           element={(
             <>
-              <HomeMainNavbar />
+              <MainNavbar />
               {" "}
               <Signup />
               {" "}
@@ -62,7 +67,7 @@ function Router() {
           path="/forgetpassword"
           element={(
             <>
-              <HomeMainNavbar />
+              <MainNavbar />
               <ForgetPassword />
             </>
           )}
@@ -71,13 +76,14 @@ function Router() {
         <Route
           path="/chat"
           element={(
-            <Protected user={user}>
+            <Protected userId={userId}>
               <ChatBoard />
             </Protected>
           )}
         />
       </Routes>
     </BrowserRouter>
+
   );
 }
 export default Router;

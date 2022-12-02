@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from "react";
-// import Button from '@mui/material/Button';
+import React, {
+// useState,
+// useEffect,
+} from "react";
 import Typography from "@mui/material/Typography";
 import Avatar from "@mui/material/Avatar";
-import Imb from "../../Images/boy.jpg";
-import Imc from "../../Images/g1.png";
+// import {
+//   collection,
+//   // getDocs,
+//   onSnapshot,
+// } from "firebase/firestore";
 
-import Imf from "../../Images/g3.png";
+import Imb from "../../Images/boy.jpg";
+// import Imc from "../../Images/g1.png";
+
+// import Imf from "../../Images/g3.png";
 import Navbar from "./Navbar";
 
 import {
@@ -13,95 +21,90 @@ import {
   SidebarCard,
   Avter,
   InnerContent,
-  Read,
+  // Read,
   Boxes,
 } from "./Chat.styled";
+// import { db } from "../../../FirebaseConfig";
 
-const Data = [
-  {
-    id: 1,
-    usertype: "Marilyn Benson",
-    msg: "Lorem Ipsum has been the industry's standard dummy text ever",
-    timestamp: "10:00am",
-    now: "Now ",
-    unread: "22",
-    image: Imb,
-  },
-  {
-    id: 2,
-    usertype: "Julio Barrett",
-    msg: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    timestamp: "10:05am",
-    now: "Now ",
-    unread: " 99+",
-    image: Imc,
-  },
-  {
-    id: 4,
-    usertype: "Oleh Sheptytskyi",
-    msg: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    unread: 2,
-    timestamp: "10:20am",
-    now: "Now ",
-    image: Imf,
-  },
-  {
-    id: 5,
-    usertype: "Lonnie Gardner",
-    msg: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    timestamp: "10:40am",
-    now: "10:40am",
-    // unread: 22,
-    image: Imf,
-  },
-  {
-    id: 4,
-    usertype: "Maurice Wolfe",
-    msg: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    // unread: 22,
-    timestamp: "10:20am",
-    now: "10:40am",
-    image: Imf,
-  },
-  {
-    id: 5,
-    usertype: "Lonnie Young",
-    msg: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-    timestamp: "10:40am",
-    now: "10:40am",
-    // unread: 22,
-    image: Imb,
-  },
-];
+// const Data = [
+//   {
+//     id: 1,
+//     usertype: "Marilyn Benson",
+//     msg: "Lorem Ipsum has been the industry's standard dummy text ever",
+//     timestamp: "10:00am",
+//     now: "Now ",
+//     unread: "22",
+//     image: Imb,
+//   },
+//   {
+//     id: 5,
+//     usertype: "Lonnie Young",
+//     msg: "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+//     timestamp: "10:40am",
+//     now: "10:40am",
+//     // unread: 22,e we actually pass our data along with t
+//     image: Imb,
+//   },
+// ];
 
-function Chat() {
-  // const [Msg] = useState("");
+function Chat(firestoreUsers) {
+  console.log(firestoreUsers, "firestore user");
+  // const [firestoreUsers, setFirestoreUsers] = useState([]);
+  // console.log(firestoreUsers, "state");
+
+  // useEffect(
+  //   () => onSnapshot(collection(db, "users"), (snapshot) => {
+  // setFirestoreUsers(snapshot.docs.map((doc) => doc.data()))}),
+  //   [],
+  // );
+
+  // // const userCollectionRef = collection(db, "users");
+  // const getUsers = async () => {
+  //   try {
+  //     const firestoreData = await getDocs(collection(db, "users"));
+  //     // console.log(firestoreData, "khkjhk");
+  //     firestoreData?.doc?.map((doc) => setFirestoreUsers((pre) => [...pre,
+  //       { ...doc.data(), id: doc.id }]));
+  //     console.log(firestoreData.docs, "useeffect firestoredata");
+  //     console.log(firestoreUsers, "state ");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
   // useEffect(() => {
-  //   // show();
-  // }, [Msg]);
+  //   getUsers();
+  //   console.log(firestoreUsers, "firestoreusersss state");
+  //   // console.log(firestoreData, "firest data");
+  // }, []);
   return (
     <div className="chat">
       <Navbar />
-      {Data.map((item) => (
+
+      { firestoreUsers?.firestoreUsers?.map((item) => (
         <Sidebar>
+          firestoreUsers
           <SidebarCard>
             <Avter>
-              <Avatar src={item.image} />
+              <Avatar src={Imb} />
             </Avter>
             <InnerContent>
               <Boxes>
-                <Typography variant="subtitle1">{item.usertype}</Typography>
-                <Typography variant="subtitle2" sx={{ ml: "80px" }}>
+                <Typography variant="subtitle1">{item.name}</Typography>
+                {/* <Typography variant="subtitle2" sx={{ ml: "80px" }}>
                   {item.now}
-                </Typography>
-                {item.unread && <Read>{item.unread}</Read>}
+                </Typography> */}
+                {/* {item.unread && <Read>{item.unread}</Read>} */}
               </Boxes>
-              <Typography variant="subtitle2">{item.msg}</Typography>
+              <Typography variant="subtitle2">{item.email}</Typography>
+
+              {" "}
               {/* <Time>{item.timestamp}</Time> */}
             </InnerContent>
           </SidebarCard>
         </Sidebar>
       ))}
+
     </div>
   );
 }

@@ -4,7 +4,7 @@ import React from "react";
 import
 { }
   from "./CheatBox.styled";
-import Navbar from "../Card/NavChatboard";
+import Cfrom "../Card/NavChatboard";
 
 function CheatBox() {
   return (
