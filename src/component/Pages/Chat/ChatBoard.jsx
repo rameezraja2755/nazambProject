@@ -9,37 +9,46 @@ import {
 import SideBarChat from "../../Organisms/SideBarChat/Chat";
 import MainContainer from "./ChatBoard.styled";
 import Chatboard from "../../Organisms/Card/NavChatboard";
-// import CheatBox from "../../Organisms/CheatBox/CheatBox";
+
 import { useAuth } from "../../../new_providerr/AuthProvider";
 import { db } from "../../../FirebaseConfig";
+import {
+  FIREBASE_USERS,
+  // G_SIGN_IN,
+} from "../../../new_providerr/constants";
 
 function ChatBoard() {
-  const { userId, error } = useAuth();
+  const { userId, error, dispatch } = useAuth();
   const navigate = useNavigate();
   const [firestoreUsers, setFirestoreUsers] = useState([]);
+
   console.log(firestoreUsers, "state");
 
   useEffect(() => {
     if (!userId) {
       navigate("/");
     }
-
-    // console.log("navigatee", user, error);
-    // } else if (error) {
-    //   <Alert severity="error">Error detected!</Alert>;
-    // }
   }, [userId, error]);
 
   useEffect(() => {
+    const arr = [];
     onSnapshot(collection(db, "users"), (snapshot) => {
-      snapshot.docs.forEach((doc) => (setFirestoreUsers((pre) => [...pre, doc.data()])));
+      snapshot.docs.forEach((doc) => (arr.push(doc.data())));
+      setFirestoreUsers(arr);
     });
   }, []);
+
+  useEffect(() => {
+    dispatch({
+      type: FIREBASE_USERS,
+      firestoreUserList: firestoreUsers,
+    });
+  }, [firestoreUsers]);
 
   return (
     <MainContainer>
       <Box>
-        <SideBarChat firestoreUsers={firestoreUsers} />
+        <SideBarChat />
       </Box>
       <Box>
         <Chatboard />

@@ -28,7 +28,7 @@ function Navbar() {
   };
 
   const shortName = (str) => {
-    str.split(" ").map((word) => (word.charAt(0) !== "" ? shortNameResult.push(word.charAt(0)) : ""));
+    str?.split(" ")?.map((word) => (word.charAt(0) !== "" ? shortNameResult.push(word.charAt(0)) : ""));
     return shortNameResult;
   };
 

@@ -38,7 +38,7 @@ function AuthProvider(props) {
         loggedIn: true,
         authMessage: "sign in completed!",
       });
-      console.log("user in context index page :@ ", res);
+      // console.log("user in context index page :@ ", res);
       if (res) {
         state.user = res;
       } else {
@@ -51,10 +51,11 @@ function AuthProvider(props) {
     return unsubscribe;
   }, []);
 
-  console.log(state, "this is state");
+  // console.log(state, "this is state");
 
   const returnValues = {
     ...state,
+    dispatch,
     registerUser: actions.registerUser,
     signInUser: actions.signInUser,
     gSignin: actions.gSignin,

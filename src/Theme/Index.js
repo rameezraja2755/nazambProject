@@ -279,6 +279,7 @@ const theme = createTheme({
       textAlign: "left",
       color: "black",
     },
+
     body3: {
       fontFamily: " Poppins",
       fontSize: "16px",
@@ -322,20 +323,29 @@ const theme = createTheme({
       color: "white",
     },
     h1: {
-      fontWeight: 700,
-      fontSize: "3.5rem",
-      lineHeight: 1.375,
+      fontFamily: " Poppins",
+      fontSize: "16px",
+      height: "22px",
+      fontWeight: "500",
+      lineHeight: " 22px",
+      letterSpacing: "0em",
+      textAlign: "left",
+      color: "#1D9BD6",
+      padding: "30px",
+
     },
-    h2: {
-      fontWeight: 700,
-      fontSize: "3rem",
-      lineHeight: 1.375,
-    },
+
     h3: {
-      fontWeight: 700,
-      fontSize: "2.25rem",
-      lineHeight: 1.375,
+      fontFamily: "Poppins",
+      fontSize: "14px",
+      fontWeight: " 400",
+      lineHeight: "22px",
+      letterSpacing: " 0em",
+      textAlign: " left",
+      color: "#656D79",
+
     },
+
     h4: {
       fontWeight: 700,
       fontSize: "2rem",

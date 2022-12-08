@@ -1,11 +1,18 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
 
 function Protected({ userId, children }) {
   console.log(userId, "protected for chat");
+
   if (!userId) {
     // console.log(user, "user");
-    return <Navigate to="/" replace />;
+    return (
+      <>
+        <Navigate to="/" replace />
+        <Alert variant="filled" severity="error">Please sign in to to access chat  </Alert>
+      </>
+    );
   }
 
   return children;

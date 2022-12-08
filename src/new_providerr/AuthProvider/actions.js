@@ -9,6 +9,10 @@ import {
   // onAuthStateChanged,
   GoogleAuthProvider,
 } from "firebase/auth";
+// import { Navigate } from "react-router-dom";
+import {
+  doc, serverTimestamp, setDoc, query, where, collection, getDocs,
+} from "firebase/firestore";
 import {
   SIGN_IN,
   SIGN_OUT,
@@ -16,7 +20,7 @@ import {
   FORGOT_PASSWORD,
   // G_SIGN_IN,
 } from "../constants";
-import { auth } from "../../FirebaseConfig";
+import { auth, db } from "../../FirebaseConfig";
 
 const useActions = (dispatch) => {
   const provider = new GoogleAuthProvider();
@@ -33,6 +37,7 @@ const useActions = (dispatch) => {
           loggedIn: true,
           authMessage: "sign in completed!",
         });
+        console.log(res, "response in gstate signin");
       })
       .catch((err) => {
         dispatch({
@@ -51,6 +56,7 @@ const useActions = (dispatch) => {
     try {
       dispatch({
         type: SIGN_OUT,
+        authMessage: "Signout Successful!",
       });
     } catch (err) {
       dispatch({
@@ -61,29 +67,38 @@ const useActions = (dispatch) => {
     }
   };
 
-  const registerUser = async (email, password, name) => {
+  const registerUser = async (email, password, userName) => {
     // setLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      // .then(() => updateProfile(auth.currentUser, {
-      //   displayName: name,
-      // }))
+    await createUserWithEmailAndPassword(auth, email, password)
+
       .then((res) => {
+        console.log(res, userName, "response in signup action ");
         dispatch({
           type: CREATE_USER,
-          displayName: name,
+          displayName: userName,
           user: res,
           authMessage: "user registered!",
         // authRedirect: "/stream",
         });
-        console.log(res, "response in gstate signup");
+
+        setDoc(doc(db, "users", res.user.uid), {
+          name: userName,
+          emailId: email,
+          id: res.user.uid,
+          createdOn: serverTimestamp(),
+          ProviderId: "signup",
+
+        });
+        // setDoc(doc(db, "userChats", res.user.uid), {});
+        // console.log("action page res in signup", res);
       })
       .catch((err) => dispatch({
         type: CREATE_USER,
         error: err.message,
-        authMessage: "couldn't create new user!",
+        authMessage: "Error!couldn't create new user!",
 
       }));
-    // .finally(() => setLoading(false));
+    // .finally (() => );
   };
 
   const forgotPassword = async (email) => {
@@ -91,18 +106,14 @@ const useActions = (dispatch) => {
       .then(() => {
         dispatch({
           type: FORGOT_PASSWORD,
-          // authStatus: "reset-link-sent",
           authMessage: "Please check your email for your password reset link.",
-          // authStatusType: "page",
 
         });
       })
       .catch((err) => {
         dispatch({
           type: FORGOT_PASSWORD,
-          // authStatus: err.code,
           authMessage: "somethings went wrong! Please try again later",
-          // authStatusType: "message",
           error: err.message,
         });
       });
@@ -115,17 +126,36 @@ const useActions = (dispatch) => {
     await signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        console.log("google pop-up token", token);
+        // const credential = GoogleAuthProvider.credentialFromResult(result);
+      //  const token = credential.accessToken;
+
         const res = result;
-        // setUser(res.user);
+        console.log("google signin res", res);
         dispatch({
           type: SIGN_IN,
           user: res.user,
           authMessage: "pop-up! Signin successfull!",
           // error: err.message,
         });
+
+        const q = query(collection(db, "users"), where("id", "==", res.user.uid));
+        const querySnapshot = getDocs(q);
+        querySnapshot.forEach((qres) => {
+          // doc.data() is never undefined for query doc snapshots
+          console.log(qres, " => userl alredy exists:p", qres.data());
+        });
+        if (querySnapshot.empty) {
+          // create chat
+          // const id = nanoid();
+          setDoc(doc(db, "users"), {
+            name: res?.user?.displayName,
+            photoUrl: res?.user?.photoURL,
+            emailId: res.user.email,
+            id: res.user.uid,
+            createdOn: serverTimestamp(),
+            ProviderId: "google",
+          });
+        }
       })
       .catch((err) => {
         dispatch({

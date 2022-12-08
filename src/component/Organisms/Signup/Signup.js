@@ -4,8 +4,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { Button } from "@mui/material";
 import Alert from "@mui/material/Alert";
-import { collection, setDoc } from "firebase/firestore";
-import { db } from "../../../FirebaseConfig";
+// import { doc, setDoc } from "firebase/firestore";
+import { Navigate } from "react-router-dom";
+// import { db } from "../../../FirebaseConfig";
 import Input from "../../Atoms/Input/Input";
 import PasswordInput from "../../Atoms/PasswordInput/PasswordInput";
 import { Container, AlertBox } from "./Signup.styled";
@@ -36,36 +37,47 @@ const initialValues = {
   ConfirmPassword: "",
 };
 
+// function firbaseChat(arr) {
+//   // console.log(name, userId, email, "signup funct");
+//   if (userId) {
+//     setDoc(doc(db, "users", userId), {
+//       userName: arr[0],
+//       emailId: arr[1],
+//       id: userId,
+//     });
+//     setDoc(doc(db, "userChats", userId), {});
+//   } else {
+//     console.log("error in adding doc to firebase");
+//   }
+// }
+
 function Signup() {
   const {
-    registerUser, userId, userName, error,
+    registerUser, userId, error,
   } = useAuth();
+
   const {
     values, errors, handleChange, handleSubmit, touched,
   } = useFormik({
     initialValues,
     validationSchema: signUpSchema,
-    onSubmit: async () => {
-      registerUser(values.email, values.password, `${values.FirstName} ${values.LastName}`);
-      const CollectionRef = collection(db, "users", userId);
-      const payload = {
-        name: userName,
-        email: values.email,
-      };
-      await setDoc(CollectionRef, payload);
-
-      // console.log("signup user id generated", userId, CollectionRef, payload);
-      // // to add doc to existing document-setDoc
-      // const docRef = doc(db, "users", "user001");
-      // const payload = { name: values.email, email: values.password };
-      // await setDoc(docRef, payload);
-      // values = initialValues;
+    onSubmit: async (value) => {
+      await registerUser(value.email, value.password, `${value.FirstName} ${value.LastName}`);
+      // console.log("username on signup", `${value.FirstName} ${value.LastName}`);
     },
+    //  firbaseChat(arr);
   });
-  // console.log(values, "values", errors);
 
   return (
     <Container>
+      <AlertBox>
+        {userId ? (
+          <>
+            <Alert variant="filled" severity="error">Already signed in!</Alert>
+            <Navigate to="/" replace />
+          </>
+        ) : ""}
+      </AlertBox>
       <form onSubmit={handleSubmit}>
         <Input
           type="FirstName"
@@ -125,7 +137,7 @@ function Signup() {
             margin: "10px",
           }}
           variant="contained"
-          type="submianbreen.shakrullah@gmail.comt"
+          type="submit"
         >
           {" "}
           Sign up

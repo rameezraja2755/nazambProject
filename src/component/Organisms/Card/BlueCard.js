@@ -1,134 +1,117 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import AddIcon from "@mui/icons-material/Add";
 import SentimentSatisfiedAltIcon from "@mui/icons-material/SentimentSatisfiedAlt";
 import Avatar from "@mui/material/Avatar";
-import Imb from "../../Images/boy.jpg";
+import {
+  doc, serverTimestamp,
+  collection, onSnapshot, addDoc,
+} from "firebase/firestore";
+import { useParams } from "react-router-dom";
+
 import Imc from "../../Images/g1.png";
 import * as SC from "./BlueCard.styled";
+import { useAuth } from "../../../new_providerr/AuthProvider";
+import { db } from "../../../FirebaseConfig";
 
 export default function BasicCard() {
+  const { firestoreUsers, userId } = useAuth();
+
+  const { chatId } = useParams();
+  const [text, setText] = useState("");
+  const [fireChat, setFireChat] = useState([]);
+  const userRef = doc(db, "users", userId);
+
+  const handleSendMessage = async (val) => {
+    console.log(text, "text");
+    await addDoc(collection(db, "chats", chatId, "messages"), {
+      date: serverTimestamp(),
+      // initiatedBy: userId,
+      message: val,
+      owner: userRef,
+      ownerId: userId,
+    });
+    setText("");
+  };
+
+  const handleValue = (event) => {
+    setText(event.target.value);
+  };
+
+  useEffect(() => {
+    onSnapshot(collection(db, "chats", chatId, "messages"), (snapshot) => {
+      const arr = [];
+      console.log(snapshot.docs);
+      snapshot.docs.forEach((res) => (arr.push(res.data())));
+      setFireChat(arr);
+    });
+  }, []);
+
+  console.log(fireChat, "firechat");
+
   return (
     <SC.FullFlatmates>
       <SC.Flatmates>
         <SC.User>
-          <SC.SccCard>
-            <Typography variant="body3">
-              The process is usually completed by a group of people with different
-              skills and training—e.g. industrial designers, field experts
-              (prospective users), engineers(for engineering design aspects),
-              depending upon the nature and type of the product involved.
-            </Typography>
 
-          </SC.SccCard>
-          <SC.SbbCard>
-            <Typography variant="body3">
-              Option 1 with more text that fills one line
-            </Typography>
-          </SC.SbbCard>
+          {fireChat.map((item) => (
 
-          <SC.SddCard>
+            <SC.SbbCard>
+              <Typography variant="body3">
+                {item.message}
+              </Typography>
+            </SC.SbbCard>
+          ))}
 
-            <Typography variant="body33">
-              Option 2
-            </Typography>
-          </SC.SddCard>
-          <SC.Boxes>
-            <Typography variant="secondary">Alan lee</Typography>
-            <Typography variant="secondary:main">3:16pm</Typography>
-          </SC.Boxes>
-          <SC.Date>
-            <Typography variant="secondary">July 20, 2021</Typography>
-          </SC.Date>
-
-          {/* <SC.SudoContainer variant="body1">New</SC.SudoContainer> */}
-
-          <SC.SbbCard>
-            <Typography variant="body3">
-              Option 1 with more text that fills one line
-              {" "}
-            </Typography>
-          </SC.SbbCard>
-          <SC.SddCard>
-            <Typography variant="body33">
-              Option 2
-            </Typography>
-          </SC.SddCard>
-          <SC.BlueBoxes>
-            <Typography variant="secondary">Angelina Patterson</Typography>
-            <Typography variant="secondary:main">3:14pm</Typography>
-          </SC.BlueBoxes>
         </SC.User>
 
-        <SC.Clt>
-          <SC.SdiCard>
-            <Typography variant="body2">
-              Option 1 with more text that fills one line
-            </Typography>
-          </SC.SdiCard>
-          <SC.Boxes>
-            <Typography variant="secondary">Me</Typography>
-            <Typography variant="secondary:main">3:17pm</Typography>
-          </SC.Boxes>
+        {/* chat input at bottom */}
+        <SC.InputCard>
+          <input type="text" name="name" value={text} onChange={handleValue} placeholder=" type your msg here.." style={{ width: "480px", height: "44px", border: "none" }} />
 
-          <SC.SbiCard>
-            <Typography variant="body2">
-              There are various product design processes and many focus on different aspects.
-            </Typography>
-          </SC.SbiCard>
-          <SC.InputCard>
-            <input type="text" name="name" placeholder=" Don’t forget to send an order screenshot till June 24" style={{ width: "480px", height: "44px", border: "none" }} />
+          <SC.IconBox>
+            <SC.Icon>
+              <AddIcon sx={{ color: "#3chatId185FC", gap: "20px" }} />
+              <SentimentSatisfiedAltIcon />
+            </SC.Icon>
+            <Box>
+              <SC.Btn type="submit" onClick={() => { handleSendMessage(text); }}>Send</SC.Btn>
 
-            <SC.IconBox>
-              <SC.Icon>
-                <AddIcon sx={{ color: "#3185FC", gap: "20px" }} />
-                <SentimentSatisfiedAltIcon />
-              </SC.Icon>
-              <Box>
-                <SC.Btn>Send</SC.Btn>
+            </Box>
+          </SC.IconBox>
 
-              </Box>
-            </SC.IconBox>
+        </SC.InputCard>
 
-          </SC.InputCard>
-        </SC.Clt>
       </SC.Flatmates>
+
+      {/* //right sidebar users in chatroom */}
+
       <SC.Rightbar>
         <SC.Sidebar>
           <SC.Flatematebox>
             <Typography variant="h3">FLATMATES</Typography>
           </SC.Flatematebox>
-          <SC.SidebarCard>
-            <SC.Avter>
-              <Avatar src={Imb} />
-            </SC.Avter>
-            <SC.InnerContent>
-              <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
-                Alan Lee
-              </Typography>
-              <Typography sx={{ fontSize: 13 }} color="text.secondary">
-                Sao Paulo, Brazil
-              </Typography>
 
-            </SC.InnerContent>
+          { firestoreUsers?.map((item) => (
+            <SC.SidebarCard>
+              <SC.Avter>
+                <Avatar src={Imc} />
+              </SC.Avter>
+              <SC.InnerContent>
 
-          </SC.SidebarCard>
-          <SC.SidebarCard>
-            <SC.Avter>
-              <Avatar src={Imc} />
-            </SC.Avter>
-            <SC.InnerContent>
-              <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
-                Alan Lee
-              </Typography>
-              <Typography sx={{ fontSize: 13 }} color="text.secondary">
-                Sao Paulo, Brazil
-              </Typography>
+                <Typography sx={{ fontSize: 18, color: "black", fontWeight: "bold" }}>
+                  {item.name}
+                </Typography>
+                <Typography sx={{ fontSize: 13 }} color="text.secondary">
+                  {item.email}
+                </Typography>
 
-            </SC.InnerContent>
+              </SC.InnerContent>
 
-          </SC.SidebarCard>
+            </SC.SidebarCard>
+          ))}
+
         </SC.Sidebar>
 
       </SC.Rightbar>

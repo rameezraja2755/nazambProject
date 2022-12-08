@@ -25,7 +25,7 @@ function Router() {
     userId, userName,
   } = useAuth();
 
-  console.log("userId, user name -router", userId, userName);
+  console.log("userId, username in router", userId, userName);
   return (
 
     <BrowserRouter>
@@ -55,10 +55,9 @@ function Router() {
           path="/signup"
           element={(
             <>
+
               <MainNavbar />
-              {" "}
               <Signup />
-              {" "}
 
             </>
           )}
@@ -75,6 +74,14 @@ function Router() {
 
         <Route
           path="/chat"
+          element={(
+            <Protected userId={userId}>
+              <ChatBoard />
+            </Protected>
+          )}
+        />
+        <Route
+          path="/chat/:chatId"
           element={(
             <Protected userId={userId}>
               <ChatBoard />
